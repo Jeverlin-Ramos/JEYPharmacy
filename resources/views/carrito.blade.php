@@ -93,7 +93,7 @@
         <div class="container pb-5 mt-n2 mt-md-n3 mt-4">
             <div class="row">
                 <div class="col-xl-9 col-md-8">
-                    <h3 class="h6 d-flex flex-wrap justify-content-between align-items-center px-4 py-3" id="product"><span>Products</span><a class="font-size-sm" href="#" style="color:#81cc12;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left" style="width: 1rem; height: 1rem; color:#81cc12;"><polyline points="15 18 9 12 15 6"></polyline></svg>Continue shopping</a></h3>
+                    <h3 class="h6 d-flex flex-wrap justify-content-between align-items-center px-4 py-3" id="product"><span>Productos</span><a class="font-size-sm" href="#" style="color:#81cc12;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left" style="width: 1rem; height: 1rem; color:#81cc12;"><polyline points="15 18 9 12 15 6"></polyline></svg>Seguir comprando</a></h3>
                     @foreach($detallesCarrito as $item)
 
                     <!-- Item-->
@@ -136,6 +136,100 @@
                             </form>
                         </div>
                     </div>
+
+                    <div class="accordion" id="cart-accordion">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="accordion-heading font-weight-semibold"><a>Datos del Cliente</span></a></h3>
+                            </div>
+                            <div class="collapse show" id="promocode" data-parent="#cart-accordion">
+                                <div class="card-body">
+                                    <label for="Name">Nombre:</label>
+                                    <input class="form-control mb-3" type="text" name="nombre" id="nombre" readonly value="{{  auth()->user()->name }}">
+                                    <label for="Name">Número de Teléfono:</label>
+                                    <input class="form-control mb-3" type="text" name="telefono" id="telefono" readonly value="{{  auth()->user()->telefono }}">
+                                    <label for="Name">Dirección:</label>
+                                    <input class="form-control mb-3" type="text" name="Direccion" id="Direccion" placeholder="Ingresa tu dirección" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="accordion-heading font-weight-semibold"><a>Detalles del Pago</a></h3>
+                            </div>
+                            
+                                <div class="card-body">
+                                        <!-- Campos del formulario de pago -->
+                                        <!-- ... -->
+                                
+                                        <div class="form-group">
+                                            <label for="payment-option">Opción de Pago:</label>
+                                            <select id="payment-option" name="payment_option" class="form-control">
+                                                <option value="">Seleccionar</option>
+                                                <option value="tarjeta">Tarjeta de Crédito</option>
+                                                <option value="efectivo">Pago contra Entrega</option>
+                                            </select>
+                                        </div>
+                                
+                                        <!-- Campos adicionales para el pago con tarjeta -->
+                                        <div id="tarjeta-fields">
+                                            <!-- Campos para el pago con tarjeta -->
+                                            <input class="form-control" type="text" name="titular" id="" placeholder="Titular de la Tarjeta">
+                                            <input class="form-control" type="text" name="credit_card_num" id="" placeholder="Número de Tarjeta">
+                                            <input class="form-control" type="number" name="cvv" id="" placeholder="CVV">
+                                            <input class="form-control" type="text" name="expiracion" id="" placeholder="MM/AA">
+                                            <!-- ... -->
+                                        </div>
+                                
+                                        <!-- Campos adicionales para el pago en efectivo -->
+                                        <div id="efectivo-fields">
+                                            <!-- Campos para el pago en efectivo -->
+                                            <input class="form-control" type="number" name="Cantidad" id="" placeholder="Cantidad a pagar">
+                                            <!-- ... -->
+                                        </div>
+                                
+                                        @csrf
+                                
+                                
+                                    <!-- JavaScript/jQuery -->
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                        $(document).ready(function() {
+                                            // Ocultar campos adicionales al cargar la página
+                                            $('#tarjeta-fields').hide();
+                                            $('#efectivo-fields').hide();
+                                
+                                            // Mostrar/ocultar campos adicionales según la opción de pago seleccionada
+                                            $('#payment-option').on('change', function() {
+                                                var selectedOption = $(this).val();
+                                
+                                                if (selectedOption === 'tarjeta') {
+                                                    $('#tarjeta-fields').show();
+                                                    $('#efectivo-fields').hide();
+                                                } else if (selectedOption === 'efectivo') {
+                                                    $('#tarjeta-fields').hide();
+                                                    $('#efectivo-fields').show();
+                                                } else {
+                                                    $('#tarjeta-fields').hide();
+                                                    $('#efectivo-fields').hide();
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                </div>
+
+                        </div>
+                        <button class="btn btn-primary btn-block mt-3" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg>Realizar pedido</button>
+                        </form>
+                    </div>
+
+
+
+
                     @endforeach
 
                 </div>
@@ -153,97 +247,13 @@
 
                     <form action="{{ route('carrito.realizar-pedido') }}" method="POST">
 
-                    <h3 class="h6 pt-4 font-weight-semibold"><span class="badge badge-success mr-2">Note</span>Additional comments</h3>
+                    <h3 class="h6 pt-4 font-weight-semibold"><span class="badge badge-success mr-2">Notas</span>Comentarios adicionales</h3>
                     <textarea class="form-control mb-3" id="order-comments" name="Comentarios" rows="5"></textarea>
 
-                    <div class="pt-4">
-                        <div class="accordion" id="cart-accordion">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="accordion-heading font-weight-semibold"><a>Datos del Cliente</span></a></h3>
-                                </div>
-                                <div class="collapse show" id="promocode" data-parent="#cart-accordion">
-                                    <div class="card-body">
-                                        <label for="Name">Nombre:</label>
-                                        <input class="form-control mb-3" type="text" name="nombre" id="nombre" readonly value="{{  auth()->user()->name }}">
-                                        <label for="Name">Número de Teléfono:</label>
-                                        <input class="form-control mb-3" type="text" name="telefono" id="telefono" readonly value="{{  auth()->user()->telefono }}">
-                                        <label for="Name">Dirección:</label>
-                                        <input class="form-control mb-3" type="text" name="Direccion" id="Direccion" placeholder="Ingresa tu dirección" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="accordion-heading font-weight-semibold"><a>Detalles del Pago</a></h3>
-                                </div>
-                                
-                                    <div class="card-body">
-                                            <!-- Campos del formulario de pago -->
-                                            <!-- ... -->
-                                    
-                                            <div class="form-group">
-                                                <label for="payment-option">Opción de Pago:</label>
-                                                <select id="payment-option" name="payment_option" class="form-control">
-                                                    <option value="">Seleccionar</option>
-                                                    <option value="tarjeta">Tarjeta de Crédito</option>
-                                                    <option value="efectivo">Pago contra Entrega</option>
-                                                </select>
-                                            </div>
-                                    
-                                            <!-- Campos adicionales para el pago con tarjeta -->
-                                            <div id="tarjeta-fields">
-                                                <!-- Campos para el pago con tarjeta -->
-                                                <input class="form-control" type="text" name="titular" id="" placeholder="Titular de la Tarjeta">
-                                                <input class="form-control" type="text" name="credit_card_num" id="" placeholder="Número de Tarjeta">
-                                                <input class="form-control" type="number" name="cvv" id="" placeholder="CVV">
-                                                <input class="form-control" type="text" name="expiracion" id="" placeholder="MM/AA">
-                                                <!-- ... -->
-                                            </div>
-                                    
-                                            <!-- Campos adicionales para el pago en efectivo -->
-                                            <div id="efectivo-fields">
-                                                <!-- Campos para el pago en efectivo -->
-                                                <input class="form-control" type="number" name="Cantidad" id="" placeholder="Cantidad a pagar">
-                                                <!-- ... -->
-                                            </div>
-                                    
-                                            @csrf
-                                    
-                                    
-                                        <!-- JavaScript/jQuery -->
-                                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                        <script>
-                                            $(document).ready(function() {
-                                                // Ocultar campos adicionales al cargar la página
-                                                $('#tarjeta-fields').hide();
-                                                $('#efectivo-fields').hide();
-                                    
-                                                // Mostrar/ocultar campos adicionales según la opción de pago seleccionada
-                                                $('#payment-option').on('change', function() {
-                                                    var selectedOption = $(this).val();
-                                    
-                                                    if (selectedOption === 'tarjeta') {
-                                                        $('#tarjeta-fields').show();
-                                                        $('#efectivo-fields').hide();
-                                                    } else if (selectedOption === 'efectivo') {
-                                                        $('#tarjeta-fields').hide();
-                                                        $('#efectivo-fields').show();
-                                                    } else {
-                                                        $('#tarjeta-fields').hide();
-                                                        $('#efectivo-fields').hide();
-                                                    }
-                                                });
-                                            });
-                                        </script>
-                                    </div>
+
 
                             </div>
-                            <button class="btn btn-primary btn-block mt-3" type="submit">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2">
-                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                                    <line x1="1" y1="10" x2="23" y2="10"></line>
-                                </svg>Proceed to Checkout</button>
+
                             </form>
                         </div>
                     </div>
