@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    {{ $pedido->name ?? "{{ __('Show') Pedido" }}
-@endsection
+@extends('template')
 
 @section('content')
     <section class="content container-fluid">
@@ -11,10 +7,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Pedido</span>
+                            <h3>PEDIDO</h3>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('pedidos.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('pedido.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 

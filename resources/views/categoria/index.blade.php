@@ -1,10 +1,11 @@
-@extends('layouts.app')
+@extends('template')
 
 @section('template_title')
     Categoria
 @endsection
 
 @section('content')
+<div class="content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -13,11 +14,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Categoria') }}
+                                <h3>CATEGORIAS</h3>
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('categoria.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -49,12 +50,12 @@
 											<td>{{ $categoria->nombre }}</td>
 
                                             <td>
-                                                <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('categoria.destroy',$categoria->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('categoria.show',$categoria->id) }}"><i class="fa fa-fw fa-eye"></i> </a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('categoria.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> </a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> </button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -68,4 +69,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

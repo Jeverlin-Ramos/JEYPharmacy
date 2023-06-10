@@ -1,8 +1,5 @@
-@extends('layouts.app')
+@extends('template')
 
-@section('template_title')
-    {{ __('Create') }} Categoria
-@endsection
 
 @section('content')
     <section class="content container-fluid">
@@ -16,7 +13,7 @@
                         <span class="card-title">{{ __('Create') }} Categoria</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('categorias.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('categoria.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
                             @include('categoria.form')
