@@ -137,6 +137,10 @@
                         </div>
                     </div>
 
+
+                    @endforeach
+
+
                     <div class="accordion" id="cart-accordion">
                         <div class="card">
                             <div class="card-header">
@@ -242,7 +246,6 @@
                       </script>
 
 
-                    @endforeach
 
                 </div>
                 <!-- Sidebar-->
