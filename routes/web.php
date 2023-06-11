@@ -95,3 +95,8 @@ Route::match(['PUT', 'PATCH'], '/categoria/{categoria}', [CategoriaController::c
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+//RUTA PEDIDO USUARIO
+Route::get('/pedido_usuario', function () {
+    return view('pedido_usuario');
+});
