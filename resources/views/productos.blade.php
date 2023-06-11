@@ -57,14 +57,14 @@
  </head>
 
 <body>
-<div class="hero_area">
+<div class="hero_area" style="min-height: 35vh;">
 
     <!-- header section strats -->
     @include('home.header')
     <!-- end header section -->
 
-    <section class="slider_section">
-        <div class="slider_bg_box">
+    <section class="slider_section" >
+        <div class="slider_bg_box" >
             <img src="images/slider.jpg" alt="">
         </div>
 

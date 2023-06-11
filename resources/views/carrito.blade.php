@@ -93,7 +93,7 @@
         <div class="container pb-5 mt-n2 mt-md-n3 mt-4">
             <div class="row">
                 <div class="col-xl-9 col-md-8">
-                    <h3 class="h6 d-flex flex-wrap justify-content-between align-items-center px-4 py-3" id="product"><span>Productos</span><a class="font-size-sm" href="#" style="color:#81cc12;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left" style="width: 1rem; height: 1rem; color:#81cc12;"><polyline points="15 18 9 12 15 6"></polyline></svg>Seguir comprando</a></h3>
+                    <h3 class="h6 d-flex flex-wrap justify-content-between align-items-center px-4 py-3" id="product"><span>Productos</span><a class="font-size-sm" href="{{route('productos-view')}}" style="color:#81cc12;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left" style="width: 1rem; height: 1rem; color:#81cc12;"><polyline points="15 18 9 12 15 6"></polyline></svg>Seguir comprando</a></h3>
                     @foreach($detallesCarrito as $item)
 
                     <!-- Item-->
@@ -114,7 +114,7 @@
                                 <label for="quantity1">Cantidad</label>
                                 <input class="form-control form-control-sm" type="number" name="cantidad" value="{{$item->Cantidad_producto}}">
                             </div>
-                                @csrf
+                                @csrf 
                                 @method('PUT')
                             <button class="btn btn-outline-secondary btn-sm btn-block mb-2" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw mr-1">
@@ -219,7 +219,7 @@
                                 </div>
 
                         </div>
-                        <button class="btn btn-primary btn-block mt-3" type="submit">
+                        <button class="btn btn-primary btn-block mt-3 mb-2" type="submit" id="realizarPedido" id="realizarPedidoo">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2">
                                 <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                                 <line x1="1" y1="10" x2="23" y2="10"></line>
@@ -227,7 +227,19 @@
                         </form>
                     </div>
 
+                    <div id="miAlerta" class="alert alert-success pt-2" style="display: none;">
+                        Su pedido se realizó con éxito.
+                    </div>
 
+                    <div id="miAlertaa" class="alert alert-danger pt-2" style="display: none;">
+                        Su pedido se realizó con éxito.
+                    </div>
+
+                      <script>
+                        document.getElementById("realizarPedido").addEventListener("click", function() {
+                          document.getElementById("miAlerta").style.display = "block";
+                        });
+                      </script>
 
 
                     @endforeach
