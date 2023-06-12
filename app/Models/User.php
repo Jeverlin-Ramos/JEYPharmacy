@@ -44,4 +44,35 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    static $rules = [
+		'name' => 'required',
+		'email' => 'required',
+		'fecha_nacimiento' => 'required',
+		'telefono' => 'required',
+		'rol' => 'required',
+    ];
+
+    protected $perPage = 20;
+
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function carritoCompras()
+    {
+        return $this->hasMany('App\CarritoCompra', 'Id_usuario', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pedidos()
+    {
+        return $this->hasMany('App\Pedido', 'id_usuario', 'id');
+    }
 }

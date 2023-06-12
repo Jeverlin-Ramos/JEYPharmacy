@@ -1,7 +1,5 @@
 @extends('template')
 
-
-
 @section('content')
     <section class="content container-fluid">
         <div class="row">
@@ -12,37 +10,50 @@
                             <h3>PRODUCTO</h3>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('producto.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('productos.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
-                        <div class="form-group">
-                            <strong>Imagen:</strong>
-                            {{ $producto->imagen }}
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ asset('storage/images/' . $producto->imagen) }}" alt="Imagen del producto">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <strong>Nombre:</strong>
+                                    {{ $producto->nombre }}
+                                </div>
+                                <div class="form-group">
+                                    <strong>Descripcion:</strong><br>
+                                    {{ $producto->descripcion }}
+                                </div>
+                                <div class="form-group">
+                                    <strong>Precio:</strong>
+                                    RD${{ $producto->precio }}.00
+                                </div>
+                                <div class="form-group">
+                                    <strong>Categoria:</strong>
+                                    {{ $producto->categoria->nombre }}
+                                </div>
+                                <div class="form-group">
+                                    <strong>Presentación:</strong>
+                                    {{ $producto->presentacion }}
+                                </div>
+                                <div class="form-group">
+                                    <strong>Cantidad Disponible:</strong>
+                                    {{ $producto->cant_disponible }} unidades
+                                </div>
+                                <div class="form-group">
+                                    <strong>Fecha de Vencimiento:</strong>
+                                    {{ $producto->fecha_vencimiento }}
+                                </div>
+                                <div class="form-group">
+                                    <strong>Restricciones:</strong>
+                                    {{ $producto->restriccion }}+
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <strong>Nombre:</strong>
-                            {{ $producto->nombre }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Descripcion:</strong>
-                            {{ $producto->descripcion }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Precio:</strong>
-                            {{ $producto->precio }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Id Categoria:</strong>
-                            {{ $producto->id_categoria }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Cant Disponible:</strong>
-                            {{ $producto->cant_disponible }}
-                        </div>
-
                     </div>
                 </div>
             </div>

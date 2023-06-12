@@ -15,28 +15,29 @@
                     </div>
 
                     <div class="card-body">
-                        
-                        <div class="form-group">
-                            <strong>Imagen:</strong>
-                            {{ $empleado->Imagen }}
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ asset('storage/employees/' . $empleado->Imagen) }}" alt="Imagen del empleado">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <strong>Nombre:</strong>
+                                    {{ $empleado->Nombre }}
+                                </div>
+                                <div class="form-group">
+                                    <strong>Numero Tel:</strong>
+                                    {{ $empleado->Numero_tel }}
+                                </div>
+                                <div class="form-group">
+                                    <strong>Email:</strong>
+                                    {{ $empleado->Email }}
+                                </div>
+                                <div class="form-group">
+                                    <strong>Direccion:</strong>
+                                    {{ $empleado->Direccion }}
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <strong>Nombre:</strong>
-                            {{ $empleado->Nombre }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Numero Tel:</strong>
-                            {{ $empleado->Numero_tel }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Email:</strong>
-                            {{ $empleado->Email }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Direccion:</strong>
-                            {{ $empleado->Direccion }}
-                        </div>
-
                     </div>
                 </div>
             </div>

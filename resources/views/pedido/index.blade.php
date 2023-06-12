@@ -33,7 +33,7 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Id Usuario</th>
+										<th>Usuario</th>
 										<th>Fecha Pedido</th>
 										<th>Direccion</th>
 										<th>Estado Pedido</th>
@@ -41,14 +41,6 @@
 										<th>Subtotal</th>
 										<th>Itbis</th>
 										<th>Total</th>
-										<th>Titular Tarjeta</th>
-										<th>Numero Tarjeta</th>
-										<th>Cvv</th>
-										<th>Fecha Expiracion</th>
-										<th>Monto Efectivo</th>
-										<th>Cambio</th>
-										<th>Comentarios</th>
-
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -57,7 +49,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $pedido->id_usuario }}</td>
+											<td>{{ $pedido->users->name }}</td>
 											<td>{{ $pedido->Fecha_pedido }}</td>
 											<td>{{ $pedido->Direccion }}</td>
 											<td>{{ $pedido->Estado_pedido }}</td>
@@ -65,14 +57,6 @@
 											<td>{{ $pedido->Subtotal }}</td>
 											<td>{{ $pedido->itbis }}</td>
 											<td>{{ $pedido->Total }}</td>
-											<td>{{ $pedido->Titular_tarjeta }}</td>
-											<td>{{ $pedido->Numero_tarjeta }}</td>
-											<td>{{ $pedido->CVV }}</td>
-											<td>{{ $pedido->Fecha_expiracion }}</td>
-											<td>{{ $pedido->Monto_efectivo }}</td>
-											<td>{{ $pedido->Cambio }}</td>
-											<td>{{ $pedido->Comentarios }}</td>
-
                                             <td>
                                                 <form action="{{ route('pedido.destroy',$pedido->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('pedido.show',$pedido->id) }}"><i class="fa fa-fw fa-eye"></i> </a>

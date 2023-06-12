@@ -43,16 +43,16 @@ Route::get('/pedido-confirmado', function () {
 Route::resource('empleados', App\Http\Controllers\EmpleadoController::class)->middleware('auth');
 Route::resource('pedidos', App\Http\Controllers\PedidoController::class)->middleware('auth');
 Route::resource('users', App\Http\Controllers\UserController::class)->middleware('auth');
-Route::resource('productos', App\Http\Controllers\ProductoControllerController::class)->middleware('auth');
+Route::resource('productos', App\Http\Controllers\ProductoController::class)->middleware('auth');
 
 //PRODUCTOS
-Route::get('/producto', [\App\Http\Controllers\ProductoController::class, 'index'])->name('producto.index');
+/*Route::get('/producto', [\App\Http\Controllers\ProductoController::class, 'index'])->name('producto.index');
 Route::get('/producto/create', [ProductoController::class, 'create'])->name('producto.create');
 Route::post('/producto', [ProductoController::class, 'store'])->name('producto.store');
 Route::delete('/producto/{producto}', [ProductoController::class, 'destroy'])->name('producto.destroy');
 Route::get('/producto/{producto}', [ProductoController::class, 'show'])->name('producto.show');
 Route::get('/producto/{producto}/edit', [ProductoController::class, 'edit'])->name('producto.edit');
-Route::match(['PUT', 'PATCH'], '/producto/{producto}', [ProductoController::class, 'update'])->name('producto.update');
+Route::match(['PUT', 'PATCH'], '/producto/{producto}', [ProductoController::class, 'update'])->name('producto.update');*/
 
 //USUARIOS
 Route::get('/usuario', [\App\Http\Controllers\UserController::class, 'index'])->name('usuario.index');
@@ -94,4 +94,4 @@ Route::match(['PUT', 'PATCH'], '/categoria/{categoria}', [CategoriaController::c
 //RUTA TEMPLATE
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->middleware('auth');

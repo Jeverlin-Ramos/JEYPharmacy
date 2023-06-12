@@ -6,7 +6,7 @@
       </a>
     </li>
     <li>
-      <a href="{{url('producto')}}">
+      <a href="{{url('productos')}}">
         <i class="nc-icon nc-circle-10"></i>
         <p>Productos</p>
       </a>
