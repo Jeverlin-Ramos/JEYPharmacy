@@ -10,7 +10,7 @@
 
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-            <div class="card-body ">
+            <a href="/productos"><div class="card-body ">
               <div class="row">
                 <div class="col-5 col-md-4">
                   <div class="icon-big text-center icon-warning">
@@ -32,12 +32,12 @@
                 <i class="fa fa-calendar-o"></i>
                   Más información
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-            <div class="card-body ">
+            <a href="/users"><div class="card-body ">
               <div class="row">
                 <div class="col-5 col-md-4">
                   <div class="icon-big text-center icon-warning">
@@ -58,12 +58,12 @@
                 <i class="fa fa-calendar-o"></i>
                 Más información
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-            <div class="card-body ">
+            <a href="/pedidos"><div class="card-body ">
               <div class="row">
                 <div class="col-5 col-md-4">
                   <div class="icon-big text-center icon-warning">
@@ -84,12 +84,12 @@
                 <i class="fa fa-calendar-o"></i>
                 Más información
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-            <div class="card-body ">
+            <a href="/empleados"><div class="card-body ">
               <div class="row">
                 <div class="col-5 col-md-4">
                   <div class="icon-big text-center icon-warning">
@@ -110,7 +110,7 @@
                 <i class="fa fa-calendar-o"></i>
                 Más información
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
       </div>

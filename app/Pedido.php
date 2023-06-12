@@ -69,7 +69,7 @@ class Pedido extends Model
      */
     public function estadoPedido()
     {
-        return $this->hasOne('App\EstadoPedido', 'id', 'Estado_pedido');
+        return $this->hasOne('App\Models\EstadoPedido', 'id', 'Estado_pedido');
     }
     
     /**

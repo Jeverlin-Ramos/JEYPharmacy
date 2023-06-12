@@ -436,97 +436,35 @@
         </section>
     </div>
 
-    <div class="container pb-5 mb-2">
+   <div class="container pb-5 mb-2">
         <!-- Alert-->
         <div class="alert alert-info alert-dismissible fade show text-center mb-30"><span class="alert-close" data-dismiss="alert"></span><i class="fe-icon-award"></i>&nbsp;&nbsp;Aquí se muestran <strong>todos</strong> tus pedidos.</div>
+        @foreach($pedidos as $pedido)
+        <a href="{{ route('pedido.detalle', ['id' => $pedido->id]) }}">
         <!-- Cart Item-->
         <div class="cart-item d-md-flex justify-content-between">
             <div class="px-3 my-3">
-                <a class="cart-item-product" href="#">
-                    <div class="cart-item-product-thumb"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Product"></div>
+                <a class="cart-item-product" href="{{ route('pedido.detalle', ['id' => $pedido->id]) }}">
+                    <div class="cart-item-product-thumb"><img src="{{asset('images/logo.png')}}" alt="Product"></div>
                     <div class="cart-item-product-info">
-                        <h4 class="cart-item-product-title">PEDIDO 1</h4><span><strong>Type:</strong> Mirrorless</span><span><strong>Color:</strong> Black</span>
+                      <h4 class="cart-item-product-title">{{ \Carbon\Carbon::parse($pedido->Fecha_pedido)->format('d-m-Y') }}</h4>
+                      <span><strong>Tipo de Pago:</strong> {{$pedido->Opcion_pago}}</span>
+                        <span><strong>Dirección:</strong> {{$pedido->Direccion}}</span>
                     </div>
                 </a>
             </div>
             <div class="px-3 my-3 text-center">
-                <div class="cart-item-label">Quantity</div>
-                <div class="count-input">
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                    </select>
-                </div>
+                <div class="cart-item-label">Estado del Pedido:</div>
+                <p>{{$pedido->estadoPedido->descripcion}}</p>
             </div>
             <div class="px-3 my-3 text-center">
-                <div class="cart-item-label">Subtotal</div><span class="text-xl font-weight-medium">$910.00</span>
+                <div class="cart-item-label">Total:</div><span class="text-xl font-weight-medium">RD${{$pedido->Total}}</span>
             </div>
 
         </div>
-        <!-- Cart Item-->
-        <div class="cart-item d-md-flex justify-content-between">
-            <div class="px-3 my-3">
-                <a class="cart-item-product" href="#">
-                    <div class="cart-item-product-thumb"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Product"></div>
-                    <div class="cart-item-product-info">
-                        <h4 class="cart-item-product-title">Apple iPhone X 256 GB Space Gray</h4><span><strong>Memory:</strong> 256GB</span><span><strong>Color:</strong> Space Gray</span>
-                    </div>
-                </a>
-            </div>
-            <div class="px-3 my-3 text-center">
-                <div class="cart-item-label">Quantity</div>
-                <div class="count-input">
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                    </select>
-                </div>
-            </div>
-            <div class="px-3 my-3 text-center">
-                <div class="cart-item-label">Subtotal</div><span class="text-xl font-weight-medium">$1,450.00</span>
-            </div>
-        </div>
-        <!-- Cart Item-->
-        <div class="cart-item d-md-flex justify-content-between">
-            <div class="px-3 my-3">
-                <a class="cart-item-product" href="#">
-                    <div class="cart-item-product-thumb"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Product"></div>
-                    <div class="cart-item-product-info">
-                        <h4 class="cart-item-product-title">HP LaserJet Pro Laser Printer</h4><span><strong>Type:</strong> Laser</span><span><strong>Color:</strong> White</span>
-                    </div>
-                </a>
-            </div>
-            <div class="px-3 my-3 text-center">
-                <div class="cart-item-label">Quantity</div>
-                <div class="count-input">
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                    </select>
-                </div>
-            </div>
-            <div class="px-3 my-3 text-center">
-                <div class="cart-item-label">Subtotal</div><span class="text-xl font-weight-medium">$188.50</span>
-            </div>
-        </div>
-
-
-  
-
-           
-        </div>
+         
+        </div></a>
+      @endforeach
 
     <!-- footer start -->
       @include('home.footer')

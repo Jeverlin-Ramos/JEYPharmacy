@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetallesPedido;
 use App\Pedido;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class PedidoController
@@ -106,4 +108,26 @@ class PedidoController extends Controller
         return redirect()->route('pedidos.index')
             ->with('success', 'Pedido deleted successfully');
     }
+
+    public function showPedidos()
+    {
+            // Obtenemos el usuario autenticado
+            $user = Auth::user();
+
+            // Obtenemos todos los pedidos realizados por el usuario
+            $pedidos = Pedido::where('Id_usuario', $user->id)->get();
+
+            // Retornamos la vista con los pedidos
+            return view('pedidos_del_usuario', compact('pedidos'));
+    }
+
+    public function showDetalle($id)
+    {
+        $pedido = Pedido::find($id);
+        
+        $detalles = DetallesPedido::where('Id_pedido', $id)->get();
+        
+        return view('pedido_usuario', compact('pedido', 'detalles'));
+    }
+
 }

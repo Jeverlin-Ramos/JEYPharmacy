@@ -197,4 +197,14 @@ class ProductoController extends Controller
         return redirect()->route('productos.index')
             ->with('error', 'Producto not found');
     }
+
+    public function addQuantity(Request $request, $id)
+    {
+        $producto = Producto::find($id);
+        $suma = $producto->cant_disponible + $request->input('cantidad');
+        $producto->cant_disponible = $suma;
+        $producto->save();
+        return redirect()->route('productos.index')
+        ->with('success', 'Producto updated successfully');
+    }
 }
