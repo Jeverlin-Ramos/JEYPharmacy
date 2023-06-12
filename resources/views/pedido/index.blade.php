@@ -49,10 +49,10 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $pedido->users->name }}</td>
+											<td>{{ $pedido->user->name }}</td>
 											<td>{{ $pedido->Fecha_pedido }}</td>
 											<td>{{ $pedido->Direccion }}</td>
-											<td>{{ $pedido->Estado_pedido }}</td>
+											<td>{{ $pedido->estadoPedido->descripcion }}</td>
 											<td>{{ $pedido->Opcion_pago }}</td>
 											<td>{{ $pedido->Subtotal }}</td>
 											<td>{{ $pedido->itbis }}</td>

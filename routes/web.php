@@ -19,6 +19,9 @@ Route::get('/products-detail/{id}', [App\Http\Controllers\ProductoController::cl
 
 //CATEGORIAS
 Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
+
+
+
 Route::get('/carrito/agregar-producto', [App\Http\Controllers\CarritoController::class, 'agregarProducto'])->name('carrito.agregar-producto')->middleware('auth');
 Route::get('/carrito', [App\Http\Controllers\CarritoController::class, 'mostrarCarrito'])
     ->name('carrito.mostrar')
@@ -38,6 +41,9 @@ Route::post('/carrito/realizar-pedido', [App\Http\Controllers\CarritoController:
 Route::get('/pedido-confirmado', function () {
     return view('pedido_confirmado');
 })->name('pedido.confirmado')->middleware('auth');
+
+Route::get('/pedido/{id}/detalle', [App\Http\Controllers\PedidoController::class, 'showDetalle'])->name('pedido.detalle');
+
 
 //RUTAS
 Route::resource('empleados', App\Http\Controllers\EmpleadoController::class)->middleware('auth');
@@ -102,6 +108,8 @@ Route::get('/pedido_usuario', function () {
 });
 
 //RUTA PEDIDOS DEL USUARIO
-Route::get('/pedidos_del_usuario', function () {
+/*Route::get('/pedidos_del_usuario', function () {
     return view('pedidos_del_usuario');
-});
+});*/
+Route::get('/todos-mis-pedidos', [\App\Http\Controllers\PedidoController::class, 'showPedidos'])->name('todos-mis-pedidos');
+Route::match(['PUT', 'PATCH'], '/producto/{id}/add-quantity', [ProductoController::class, 'addQuantity'])->name('producto.add.quantity');

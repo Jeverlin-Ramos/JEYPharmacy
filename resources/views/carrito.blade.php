@@ -140,7 +140,7 @@
 
                     @endforeach
 
-
+                <form action="{{ route('carrito.realizar-pedido') }}" method="POST">
                     <div class="accordion" id="cart-accordion">
                         <div class="card">
                             <div class="card-header">
@@ -260,7 +260,7 @@
                     <div class="h3 font-weight-semibold text-center py-3">RD${{($subtotal)+($subtotal * 0.18)}}</div>
                     <hr>
 
-                    <form action="{{ route('carrito.realizar-pedido') }}" method="POST">
+                   
 
                     <h3 class="h6 pt-4 font-weight-semibold"><span class="badge badge-success mr-2">Notas</span>Comentarios adicionales</h3>
                     <textarea class="form-control mb-3" id="order-comments" name="Comentarios" rows="5"></textarea>

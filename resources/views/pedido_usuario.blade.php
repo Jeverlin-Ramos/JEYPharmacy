@@ -85,14 +85,39 @@
             <!-- header section strats -->
             @include('home.header')
             <!-- end header section -->
-            
+            @if($pedido->Estado_pedido == 1)
+            <section class="slider_section" >
+                <div class="slider_bg_box">
+                    <img src="{{ asset('images/slider.jpg') }}" alt="" style="height: 300px;">
+                    <h3 class="pt-5 text-center">Tu fue realizado con éxito, más información en breve</h3>
+                </div>
+            </section>
+
+            @elseif($pedido->Estado_pedido == 2)
             <section class="slider_section" >
                 <div class="slider_bg_box">
                     <img src="{{ asset('images/slider.jpg') }}" alt="" style="height: 300px;">
                     <h3 class="pt-5 text-center">Tu pedido esta siendo procesado</h3>
+                </div>
+            </section>
+
+            @elseif($pedido->Estado_pedido == 3)
+            <section class="slider_section" >
+                <div class="slider_bg_box">
+                    <img src="{{ asset('images/slider.jpg') }}" alt="" style="height: 300px;">
                     <h3 class="text-center">Tu pedido fue despachado</h3>
                 </div>
             </section>
+
+            @elseif($pedido->Estado_pedido == 4)
+            <section class="slider_section" >
+                <div class="slider_bg_box">
+                    <img src="{{ asset('images/slider.jpg') }}" alt="" style="height: 300px;">
+                    <h3 class="text-center">Tu pedido fue entregado con éxito</h3>
+                </div>
+            </section>
+            @endif
+
         </div>
 
         
@@ -124,92 +149,27 @@
 
                     <div class="col-xl-9 col-md-8">
                         <h2 class="h6 d-flex flex-wrap justify-content-between align-items-center px-4 py-3 " id="product"><span><h4>Productos</h4></span></h2>
-
+                        @foreach($detalles as $detalle)
                         <!-- Item-->
                         <div class="d-sm-flex justify-content-between my-4 pb-4 border-bottom">
                             <div class="media d-block d-sm-flex text-center text-sm-left">
-                                <a class="cart-item-thumb mx-auto mr-sm-4" href="#"><img src="https://www.bootdey.com/image/240x240/FF0000/000000" alt="Product"></a>
-                                <div class="media-body pt-3 ml-3">
-                                    <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a href="#">Calvin Klein Jeans Keds</a></h3>
-                                    <div class="font-size-sm"><span class="text-muted mr-2">Size:</span>8.5</div>
-                                    <div class="font-size-sm"><span class="text-muted mr-2">Color:</span>Black</div>
-                                    <div class="font-size-lg text-primary pt-2">$125.00</div>
+                                <a class="cart-item-thumb mx-auto mr-sm-4" href="#"><img src="{{ asset('storage/images/' . $detalle->producto->imagen) }}" alt="Product"></a>
+                                <div class="media-body ml-3 pt-3">
+                                    <h3 class="product-card-title font-weight-semibold border-0 pb-0 ml-3"><a href="{{ route('productos-detail', $detalle->producto->id) }}">{{$detalle->producto->nombre}}</a></h3>
+                                    <div class="font-size-sm"><span class="text-muted mr-2">Presentación:</span>{{$detalle->producto->presentacion}}</div>
+                                    <div class="font-size-sm"><span class="text-muted mr-2">Marca/Laboratorio:</span>{{$detalle->producto->marca}}</div>
+                                    <div class="font-size-sm"><span class="text-muted mr-2">Restricciones (Edad):</span>{{$detalle->producto->restriccion}}+</div>
+                                    <div class="font-size-lg text-primary pt-2">RD${{ $detalle->Cantidad_producto_pedido * $detalle->Precio_unitario }}.00</div>
                                 </div>
                             </div>
                             <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style="max-width: 10rem;">
                                 <div class="form-group mb-2">
-                                    <label for="quantity1">Quantity</label>
-                                    <input class="form-control form-control-sm" type="number" id="quantity1" value="1">
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- Item-->
-                        <div class="d-sm-flex justify-content-between my-4 pb-4 border-bottom">
-                            <div class="media d-block d-sm-flex text-center text-sm-left">
-                                <a class="cart-item-thumb mx-auto mr-sm-4" href="#"><img src="https://www.bootdey.com/image/240x240/1E90FF/000000" alt="Product"></a>
-                                <div class="media-body pt-3 ml-3">
-                                    <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a href="#">The North Face Hoodie</a></h3>
-                                    <div class="font-size-sm"><span class="text-muted mr-2">Size:</span>XL</div>
-                                    <div class="font-size-sm"><span class="text-muted mr-2">Color:</span>Gray</div>
-                                    <div class="font-size-lg text-primary pt-2">$134.00</div>
+                                    <label for="quantity1">Cantidad</label>
+                                    <input class="form-control form-control-sm" type="number" name="cantidad" readonly value="{{$detalle->Cantidad_producto_pedido}}">
                                 </div>
                             </div>
-                            <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style="max-width: 10rem;">
-                                <div class="form-group mb-2">
-                                    <label for="quantity2">Quantity</label>
-                                    <input class="form-control form-control-sm" type="number" id="quantity2" value="1">
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- Item-->
-                        <div class="d-sm-flex justify-content-between my-4 pb-4 border-bottom">
-                            <div class="media d-block d-sm-flex text-center text-sm-left">
-                                <a class="cart-item-thumb mx-auto mr-sm-4" href="#"><img src="https://www.bootdey.com/image/240x240/FF8C00/000000" alt="Product"></a>
-                                <div class="media-body pt-3 ml-3">
-                                    <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a href="#">Medicine Chameleon Sunglasses</a></h3>
-                                    <div class="font-size-sm"><span class="text-muted mr-2">Lenses:</span>Chameleon</div>
-                                    <div class="font-size-sm"><span class="text-muted mr-2">Frame:</span>Gray / Black</div>
-                                    <div class="font-size-lg text-primary pt-2">$47.00</div>
-                                </div>
-                            </div>
-                            <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style="max-width: 10rem;">
-                                <div class="form-group mb-2">
-                                    <label for="quantity3">Quantity</label>
-                                    <input class="form-control form-control-sm" type="number" id="quantity3" value="1">
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- Item-->
-                        <div class="d-sm-flex justify-content-between my-4">
-                            <div class="media d-block d-sm-flex text-center text-sm-left">
-                                <a class="cart-item-thumb mx-auto mr-sm-4" href="#"><img src="https://www.bootdey.com/image/240x240/eeeeee/000000" alt="Product"></a>
-                                <div class="media-body pt-3 ml-3">
-                                    <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a href="#">Adidas Performance Hat</a></h3>
-                                    <div class="font-size-sm"><span class="text-muted mr-2">Material:</span>Acrylic</div>
-                                    <div class="font-size-sm"><span class="text-muted mr-2">Color:</span>Pink / Dark green</div>
-                                    <div class="font-size-lg text-primary pt-2">$19.00</div>
-                                </div>
-                            </div>
-                            <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style="max-width: 10rem;">
-                                <div class="form-group mb-2">
-                                    <label for="quantity4">Quantity</label>
-                                    <input class="form-control form-control-sm" type="number" id="quantity4" value="1">
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
+                            @endforeach
                 </div>
             </div>
-            
-        
-        
-        
-
     </body>
-
 </html>
