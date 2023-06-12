@@ -13,7 +13,7 @@
                    <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link" href="">Productos </a>
+                  <a class="nav-link" href="{{route('productos-view')}}">Productos </a>
                </li>
 
 

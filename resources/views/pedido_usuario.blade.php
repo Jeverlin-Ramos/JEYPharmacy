@@ -168,8 +168,17 @@
                                     <input class="form-control form-control-sm" type="number" name="cantidad" readonly value="{{$detalle->Cantidad_producto_pedido}}">
                                 </div>
                             </div>
-                            @endforeach
+                        
                 </div>
+            @endforeach
+
+            <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Subtotal:</span><span class="d-inline-block align-middle text-xl font-weight-medium">RD${{$pedido->Subtotal}}.00</span></div>
+            <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">ITBIS:</span><span class="d-inline-block align-middle text-xl font-weight-medium">RD${{$pedido->itbis}}</span></div>
+            <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Total:</span><span class="d-inline-block align-middle text-xl font-weight-medium">RD${{$pedido->Total}}</span></div>
+
+            
             </div>
+
+        </div>
     </body>
 </html>

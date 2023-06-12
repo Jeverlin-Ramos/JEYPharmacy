@@ -231,21 +231,6 @@
                         </form>
                     </div>
 
-                    <div id="miAlerta" class="alert alert-success pt-2" style="display: none;">
-                        Su pedido se realizó con éxito.
-                    </div>
-
-                    <div id="miAlertaa" class="alert alert-danger pt-2" style="display: none;">
-                        Su pedido se realizó con éxito.
-                    </div>
-
-                      <script>
-                        document.getElementById("realizarPedido").addEventListener("click", function() {
-                          document.getElementById("miAlerta").style.display = "block";
-                        });
-                      </script>
-
-
 
                 </div>
                 <!-- Sidebar-->
