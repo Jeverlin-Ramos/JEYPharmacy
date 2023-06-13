@@ -109,16 +109,21 @@ Route::get('/pedido_usuario', function () {
     return view('pedido_usuario');
 });
 
-/*Route::get('/factura', function () {
-    //return view('factura.index');
-    $response = Mail::to('hola@email.com')->send(new FacturaMailable("Emil"));
-    dump($response);
-});*/
+//RUTA EMPLEADO PEDIDOS
+Route::get('/empleados_pedidos', function () {
+    return view('empleados_pedidos');
+});
+
+//RUTA DETALLE PEDIDO
+Route::get('/detalle_pedido', function () {
+    return view('detalle_pedido');
+});
 
 //RUTA PEDIDOS DEL USUARIO
 /*Route::get('/pedidos_del_usuario', function () {
     return view('pedidos_del_usuario');
 });*/
+
 Route::get('/todos-mis-pedidos', [\App\Http\Controllers\PedidoController::class, 'showPedidos'])->name('todos-mis-pedidos');
 Route::match(['PUT', 'PATCH'], '/producto/{id}/add-quantity', [ProductoController::class, 'addQuantity'])->name('producto.add.quantity');
 
