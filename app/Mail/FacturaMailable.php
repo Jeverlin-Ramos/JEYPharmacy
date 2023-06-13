@@ -35,7 +35,9 @@ class FacturaMailable extends Mailable
     public function build()
     {
         return $this->subject('Factura de compra')
-                    ->view('factura.index')
-                    ->with(['pedido' => $this->pedido]);
+                    ->view('factura')
+                    ->with(['pedido' => $this->pedido, 
+                            'Usuario' => $this->Usuario, 
+                            'detallesCarrito' => $this->detallesCarrito]);
     }
 }

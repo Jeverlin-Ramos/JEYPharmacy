@@ -124,9 +124,6 @@ Route::get('/detalle_pedido', function () {
 });*/
 
 //RUTA PEDIDOS DEL USUARIO
-/*Route::get('/pedidos_del_usuario', function () {
-    return view('pedidos_del_usuario');
-});*/
 
 Route::get('/todos-mis-pedidos', [\App\Http\Controllers\PedidoController::class, 'showPedidos'])->name('todos-mis-pedidos');
 Route::match(['PUT', 'PATCH'], '/producto/{id}/add-quantity', [ProductoController::class, 'addQuantity'])->name('producto.add.quantity');
@@ -135,3 +132,6 @@ Route::match(['PUT', 'PATCH'], '/producto/{id}/add-quantity', [ProductoControlle
 Route::get('/empleados_pedidos', [\App\Http\Controllers\PedidoController::class, 'showPedidosForEmp'])->name('empleados_pedidos-mis-pedidos');
 Route::get('/pedido/{id}/detalle_empleado', [PedidoController::class, 'showDetalleForEmp'])->name('pedido.detalle.empleados');
 
+Route::get('/factura', function () {
+    return view('factura');
+});
