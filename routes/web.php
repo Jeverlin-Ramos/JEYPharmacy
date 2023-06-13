@@ -112,6 +112,11 @@ Route::get('/empleados_pedidos', function () {
     return view('empleados_pedidos');
 });
 
+//RUTA DETALLE PEDIDO
+Route::get('/detalle_pedido', function () {
+    return view('detalle_pedido');
+});
+
 //RUTA PEDIDOS DEL USUARIO
 /*Route::get('/pedidos_del_usuario', function () {
     return view('pedidos_del_usuario');
