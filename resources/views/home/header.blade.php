@@ -1,3 +1,5 @@
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 <header class="header_section">
    <div class="container">
        <nav class="navbar navbar-expand-lg custom_nav-container ">

@@ -130,4 +130,34 @@ class PedidoController extends Controller
         return view('pedido_usuario', compact('pedido', 'detalles'));
     }
 
+    
+    public function showPedidosForEmp()
+    {
+            // Obtenemos el usuario autenticado
+            $user = Auth::user();
+
+            // Obtenemos todos los pedidos realizados por el usuario
+            $pedidos = Pedido::where('Id_usuario', $user->id)->where('Estado_pedido', 1)->get();
+
+            // Retornamos la vista con los pedidos
+            return view('empleados_pedidos', compact('pedidos'));
+    }
+    
+    public function showDetalleForEmp($id)
+    {
+        $Pedido = Pedido::find($id);
+        $Pedido->Estado_pedido = 2; // Cambia el estado del pedido a 2
+        $Pedido->save(); // Guarda los cambios en la base de datos
+
+        $pedido = Pedido::find($id);
+        $detalles = DetallesPedido::where('Id_pedido', $id)->get();
+        
+        return view('detalle_pedido', compact('pedido', 'detalles'));
+    }
+
+    public function despacharPedido()
+    {
+        
+    }
+
 }

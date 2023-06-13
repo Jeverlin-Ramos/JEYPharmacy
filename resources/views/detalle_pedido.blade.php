@@ -284,78 +284,33 @@ select.form-control {
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Nombre produto</th>
+                            <th>Produto</th>
                             <th class="text-center">Cantidad</th>
-
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($detalles as $detalle)
+                            
                         <tr>
                             <td>
                                 <div class="product-item">
                                     <a class="product-thumb" href="#"><img src="https://www.bootdey.com/image/220x180/FF0000/000000" alt="Product"></a>
                                     <div class="product-info">
-                                        <h4 class="product-title"><a href="#">Unionbay Park</a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
+                                        <h4 class="product-title"><a href="#">{{$detalle->producto->nombre}}</a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="text-center">
                                 <div class="count-input">
-                                    <select class="form-control">
+                                    <select class="form-control" @readonly(true)>
                                         <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
                                     </select>
                                 </div>
                             </td>
 
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="product-item">
-                                    <a class="product-thumb" href="#"><img src="https://www.bootdey.com/image/220x180/5F9EA0/000000" alt="Product"></a>
-                                    <div class="product-info">
-                                        <h4 class="product-title"><a href="#">Daily Fabric Cap</a></h4><span><em>Size:</em> XL</span><span><em>Color:</em> Black</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="count-input">
-                                    <select class="form-control">
-                                        <option>1</option>
-                                        <option selected="">2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                            </td>
+                        @endforeach
 
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="product-item">
-                                    <a class="product-thumb" href="#"><img src="https://www.bootdey.com/image/220x180/9932CC/000000" alt="Product"></a>
-                                    <div class="product-info">
-                                        <h4 class="product-title"><a href="#">Cole Haan Crossbody</a></h4><span><em>Size:</em> -</span><span><em>Color:</em> Turquoise</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="count-input">
-                                    <select class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                            </td>
-
-                        </tr>
                     </tbody>
                 </table>
             </div>
