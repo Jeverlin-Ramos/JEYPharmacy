@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Mail;
 Auth::routes();
 Route::get('/', [App\Http\Controllers\ProductoController::class, 'mostrarProductos']);
 
+Route::get('factura', function () {
+    return view('factura');
+});
+
 //PRODUCTOS
 Route::resource('productos', App\Http\Controllers\ProductoController::class)->middleware('auth');
 Route::get('/products-view', [App\Http\Controllers\ProductoController::class, 'productVw'])->name('productos-view');
