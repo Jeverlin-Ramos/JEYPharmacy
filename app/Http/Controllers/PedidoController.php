@@ -143,7 +143,7 @@ class PedidoController extends Controller
             $user = Auth::user();
 
             // Obtenemos todos los pedidos realizados por el usuario
-            $pedidos = Pedido::where('Id_usuario', $user->id)->where('Estado_pedido', 1)->get();
+            $pedidos = Pedido::where('Estado_pedido', 1)->get();
 
             // Retornamos la vista con los pedidos
             return view('empleados_pedidos', compact('pedidos'));
@@ -164,12 +164,20 @@ class PedidoController extends Controller
 
     public function despacharPedido($idPedido, $idEmpleado)
     {
-    $pedido = Pedido::findOrFail($idPedido);
-    $pedido->Estado_pedido = 3;
-    $pedido->id_empleado = $idEmpleado;
-    $pedido->save();
+        $pedido = Pedido::findOrFail($idPedido);
+        $pedido->Estado_pedido = 3;
+        $pedido->id_empleado = $idEmpleado;
+        $pedido->save();
 
-    return redirect()->route('empleados_pedidos-mis-pedidos');
+        return redirect()->route('empleados_pedidos-mis-pedidos');
     }
 
+    public function pedidoEntregado($idPedido)
+    {
+        $pedido = Pedido::findOrFail($idPedido);
+        $pedido->Estado_pedido = 4;
+        $pedido->save();
+
+        return redirect()->route('todos-mis-pedidos');
+    }
 }

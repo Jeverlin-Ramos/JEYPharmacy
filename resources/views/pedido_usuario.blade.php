@@ -136,7 +136,7 @@
                     <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{$pedido->empleado->Nombre}}</h4>
                     <p class="mb-1">{{$pedido->empleado->Numero_tel}}</p>
                     <p class="mb-0">¿Tú pedido fue entregado? </p>
-                    <p class="mb-0"> <button class="btn btn-sm btn-primary">Confirma aquí</button></p>
+                    <p class="mb-0"> <a href="{{ route('pedido.entregado', ['id' => $pedido->id]) }}" class="btn btn-sm btn-primary">Confirma aquí</a></p>
                   </div>
                 </div>
               </div>
@@ -154,7 +154,7 @@
                         <!-- Item-->
                         <div class="d-sm-flex justify-content-between my-4 pb-4 border-bottom">
                             <div class="media d-block d-sm-flex text-center text-sm-left">
-                                <a class="cart-item-thumb mx-auto mr-sm-4" href="#"><img src="{{ asset('storage/images/' . $detalle->producto->imagen) }}" alt="Product"></a>
+                                <a class="cart-item-thumb mx-auto mr-sm-4" href="{{ route('productos-detail', $detalle->producto->id) }}"><img src="{{ asset('storage/images/' . $detalle->producto->imagen) }}" alt="Product"></a>
                                 <div class="media-body ml-3 pt-3">
                                     <h3 class="product-card-title font-weight-semibold border-0 pb-0 ml-3"><a href="{{ route('productos-detail', $detalle->producto->id) }}">{{$detalle->producto->nombre}}</a></h3>
                                     <div class="font-size-sm"><span class="text-muted mr-2">Presentación:</span>{{$detalle->producto->presentacion}}</div>
