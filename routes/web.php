@@ -132,6 +132,4 @@ Route::match(['PUT', 'PATCH'], '/producto/{id}/add-quantity', [ProductoControlle
 Route::get('/empleados_pedidos', [\App\Http\Controllers\PedidoController::class, 'showPedidosForEmp'])->name('empleados_pedidos-mis-pedidos');
 Route::get('/pedido/{id}/detalle_empleado', [PedidoController::class, 'showDetalleForEmp'])->name('pedido.detalle.empleados');
 
-Route::get('/factura', function () {
-    return view('factura');
-});
+Route::get('/despachar-pedido/{idPedido}/{idEmpleado}', [\App\Http\Controllers\PedidoController::class, 'despacharPedido'])->name('cambiar_estado_pedido');

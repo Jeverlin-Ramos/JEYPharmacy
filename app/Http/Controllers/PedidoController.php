@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Empleado;
 use App\Models\DetallesPedido;
 use App\Pedido;
 use Illuminate\Http\Request;
@@ -151,8 +152,9 @@ class PedidoController extends Controller
 
         $pedido = Pedido::find($id);
         $detalles = DetallesPedido::where('Id_pedido', $id)->get();
+        $deliveries = Empleado::all();
         
-        return view('detalle_pedido', compact('pedido', 'detalles'));
+        return view('detalle_pedido', compact('pedido', 'detalles', 'deliveries'));
     }
 
     public function despacharPedido($idPedido, $idEmpleado)
@@ -162,7 +164,7 @@ class PedidoController extends Controller
     $pedido->id_empleado = $idEmpleado;
     $pedido->save();
 
-    return redirect()->route('empleados_pedidos');
+    return redirect()->route('empleados_pedidos-mis-pedidos');
     }
 
 }

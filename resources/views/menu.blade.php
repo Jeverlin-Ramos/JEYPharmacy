@@ -1,7 +1,7 @@
 <ul class="nav">
     <li>
       <a href="{{url('dashboard')}}">
-        <i class="nc-icon nc-ambulance"></i>
+        <i class="nc-icon nc-bullet-list-67"></i>
         <p>Principal</p>
       </a>
     </li>
@@ -36,6 +36,12 @@
         </a>
       </li>
 
+      <li>
+        <a href="{{url('/')}}">
+          <i class="nc-icon nc-ambulance"></i>
+          <p>Página Principal</p>
+        </a>
+      </li>
     <li>
 
   </ul>

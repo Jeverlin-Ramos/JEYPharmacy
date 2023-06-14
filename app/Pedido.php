@@ -79,6 +79,10 @@ class Pedido extends Model
     {
         return $this->hasOne('App\User', 'id', 'id_usuario');
     }
-    
+
+    public function empleado()
+    {
+        return $this->belongsTo(Empleado::class, 'id_empleado');
+    }
 
 }
