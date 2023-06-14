@@ -105,7 +105,7 @@
             <section class="slider_section" >
                 <div class="slider_bg_box">
                     <img src="{{ asset('images/slider.jpg') }}" alt="" style="height: 300px;">
-                    <h3 class="text-center">Tu pedido fue despachado</h3>
+                    <h3 class="text-center pt-3">Tu pedido fue despachado</h3>
                 </div>
             </section>
 
@@ -121,7 +121,7 @@
         </div>
 
         @if($pedido->Estado_pedido == 3)
-        <div class="d-flex justify-content-center pt-3">
+        <div class="d-flex justify-content-center pt-2">
             <div>
               <div class="row">
                 <div class="col-12 col-sm-auto mb-3">
@@ -134,7 +134,9 @@
                 <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                   <div class="text-center text-sm-left mb-2 mb-sm-0">
                     <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{$pedido->empleado->Nombre}}</h4>
-                    <p class="mb-0">{{$pedido->empleado->Numero_tel}}</p>
+                    <p class="mb-1">{{$pedido->empleado->Numero_tel}}</p>
+                    <p class="mb-0">¿Tú pedido fue entregado? </p>
+                    <p class="mb-0"> <button class="btn btn-sm btn-primary">Confirma aquí</button></p>
                   </div>
                 </div>
               </div>
