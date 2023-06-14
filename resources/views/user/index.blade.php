@@ -14,7 +14,7 @@
 
                                 <form class="form my-2 my-lg-0">
                                     <div class="input-group ">
-                                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="q">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="query">
                                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
                                     </div>
                                 </form>
@@ -63,8 +63,8 @@
 
                                             <td>
                                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('usuario.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i></a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('usuario.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i> </a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('users.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i> </a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>

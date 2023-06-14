@@ -16,9 +16,11 @@ class CategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categorias = Categoria::paginate();
+        $search = $request->input('query');
+        $categorias = Categoria::where('nombre', 'like', '%'.$search.'%')
+        ->paginate();
 
         return view('categoria.index', compact('categorias'))
             ->with('i', (request()->input('page', 1) - 1) * $categorias->perPage());

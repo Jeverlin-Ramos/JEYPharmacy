@@ -17,9 +17,13 @@ class EmpleadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $empleados = Empleado::paginate();
+        $search = $request->input('query');
+
+        $empleados = Empleado::where('Nombre', 'like', '%'.$search.'%')
+        ->orWhere('Email', 'like', '%'.$search.'%')
+        ->paginate();
 
         return view('empleado.index', compact('empleados'))
             ->with('i', (request()->input('page', 1) - 1) * $empleados->perPage());

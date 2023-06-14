@@ -10,7 +10,7 @@
                             <h3>USUARIO</h3>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('usuario.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('users.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 

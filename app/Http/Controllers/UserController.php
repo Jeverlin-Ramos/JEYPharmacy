@@ -17,9 +17,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate();
+        $search = $request->input('query');
+        $users = User::where('name', 'like', '%'.$search.'%')
+        ->orWhere('email', 'like', '%'.$search.'%')->paginate();
 
         return view('user.index', compact('users'))
             ->with('i', (request()->input('page', 1) - 1) * $users->perPage());

@@ -19,9 +19,14 @@ class PedidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pedidos = Pedido::paginate();
+        $search = $request->input('query');
+        $pedidos = Pedido::where('Fecha_pedido', 'like', '%'.$search.'%')
+        ->orWhereHas('user', function ($query) use ($search) {
+            $query->where('name', 'like', '%'.$search.'%');
+        })
+        ->paginate();
 
         return view('pedido.index', compact('pedidos'))
             ->with('i', (request()->input('page', 1) - 1) * $pedidos->perPage());

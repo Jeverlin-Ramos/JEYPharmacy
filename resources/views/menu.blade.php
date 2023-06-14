@@ -12,25 +12,25 @@
       </a>
     </li>
     <li>
-      <a href="{{url('usuario')}}">
+      <a href="{{url('users')}}">
         <i class="nc-icon nc-single-02"></i>
         <p>Usuarios</p>
       </a>
     </li>
     <li>
-      <a href="{{url('pedido')}}">
+      <a href="{{url('pedidos')}}">
         <i class="nc-icon nc-app"></i>
         <p>Pedidos</p>
       </a>
     </li>
     <li>
-      <a href="{{url('empleado')}}">
+      <a href="{{url('empleados')}}">
         <i class="nc-icon nc-badge"></i>
         <p>Empleados</p>
       </a>
     </li>
     <li>
-        <a href="{{url('categoria')}}">
+        <a href="{{url('categorias')}}">
           <i class="nc-icon nc-app"></i>
           <p>Categorias</p>
         </a>

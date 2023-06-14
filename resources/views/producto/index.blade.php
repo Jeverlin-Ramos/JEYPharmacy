@@ -18,7 +18,7 @@
 
                                 <form class="form my-2 my-lg-0">
                                     <div class="input-group ">
-                                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="query">
                                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
                                     </div>
                                 </form>
