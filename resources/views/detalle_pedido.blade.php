@@ -316,9 +316,16 @@ select.form-control {
             </div>
             <div class="shopping-cart-footer">
                 <div class="column">
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <option selected>Asignar delivery</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
                     <div class="column text-lg">Subtotal: <span class="text-medium">$289.68</span></div>
                     <div class="column text-lg">ITBIS: <span class="text-medium">$289.68</span></div>
                     <div class="column text-lg">Total: <span class="text-medium">$289.68</span></div>
+                    <textarea readonly></textarea>
 
                 </div>
             </div>
