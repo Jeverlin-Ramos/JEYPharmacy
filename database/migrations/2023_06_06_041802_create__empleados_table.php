@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('Email');
             $table->string('Direccion');
             $table->timestamps();
+            
         });
     }
 

@@ -294,16 +294,16 @@ select.form-control {
                         <tr>
                             <td>
                                 <div class="product-item">
-                                    <a class="product-thumb" href="#"><img src="https://www.bootdey.com/image/220x180/FF0000/000000" alt="Product"></a>
+                                    <a class="product-thumb" href="#"><img src="{{ asset('storage/images/' . $detalle->producto->imagen) }}" alt="Product"></a>
                                     <div class="product-info">
-                                        <h4 class="product-title"><a href="#">{{$detalle->producto->nombre}}</a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
+                                        <h4 class="product-title"><a href="#">{{$detalle->producto->nombre}}</a></h4><span><em>Marca/Laboratorio:</em> {{$detalle->producto->marca}}</span><span><em>Precio Unitario:</em> RD${{$detalle->producto->precio}}.00</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="text-center">
                                 <div class="count-input">
                                     <select class="form-control" @readonly(true)>
-                                        <option>1</option>
+                                        <option>{{$detalle->Cantidad_producto_pedido}}</option>
                                     </select>
                                 </div>
                             </td>

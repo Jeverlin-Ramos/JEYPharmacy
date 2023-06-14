@@ -155,9 +155,14 @@ class PedidoController extends Controller
         return view('detalle_pedido', compact('pedido', 'detalles'));
     }
 
-    public function despacharPedido()
+    public function despacharPedido($idPedido, $idEmpleado)
     {
-        
+    $pedido = Pedido::findOrFail($idPedido);
+    $pedido->Estado_pedido = 3;
+    $pedido->id_empleado = $idEmpleado;
+    $pedido->save();
+
+    return redirect()->route('empleados_pedidos');
     }
 
 }
