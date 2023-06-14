@@ -315,6 +315,23 @@ select.form-control {
                 </table>
             </div>
             <div class="shopping-cart-footer">
+
+                    <div class="column">
+                        <span>Comentarios adicionales</span>
+                        <textarea readonly></textarea>
+
+                    </div>
+
+                <div class="column">
+
+                    <div class="column text-lg">Subtotal: <span class="text-medium">$289.68</span></div>
+                    <div class="column text-lg">ITBIS: <span class="text-medium">$289.68</span></div>
+                    <div class="column text-lg">Total: <span class="text-medium">$289.68</span></div>
+
+                </div>
+            </div>
+            <div class="shopping-cart-footer">
+                <div class="column"><a class="btn btn-outline-secondary" href="#"><i class="icon-arrow-left"></i>&nbsp;Volver a la página principal</a></div>
                 <div class="column">
                     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
                         <option selected>Asignar delivery</option>
@@ -322,18 +339,11 @@ select.form-control {
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
-                    <div class="column text-lg">Subtotal: <span class="text-medium">$289.68</span></div>
-                    <div class="column text-lg">ITBIS: <span class="text-medium">$289.68</span></div>
-                    <div class="column text-lg">Total: <span class="text-medium">$289.68</span></div>
-                    <textarea readonly></textarea>
-
                 </div>
-            </div>
-            <div class="shopping-cart-footer">
-                <div class="column"><a class="btn btn-outline-secondary" href="#"><i class="icon-arrow-left"></i>&nbsp;Volver a la página principal</a></div>
                 <div class="column">
                     <a class="btn btn-success" href="#">Despachar</a>
                 </div>
+
             </div>
         </div>
 
