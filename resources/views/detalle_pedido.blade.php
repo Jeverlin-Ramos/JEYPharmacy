@@ -286,6 +286,9 @@ select.form-control {
                         <tr>
                             <th>Produto</th>
                             <th class="text-center">Cantidad</th>
+                            <th>Actualizar cantidad</th>
+                            <th>Agregar</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -306,6 +309,20 @@ select.form-control {
                                         <option>{{$detalle->Cantidad_producto_pedido}}</option>
                                     </select>
                                 </div>
+                            </td>
+                            <td>
+                                <div class="form-group mb-2">
+                                    <label for="quantity1">Cantidad</label>
+                                    <input class="form-control form-control-sm" type="number" name="cantidad" value="{{$item->Cantidad_producto}}">
+                                </div>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-secondary btn-sm btn-block mb-2" type="submit">
+                                    Agregar
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-danger">Eliminar</button>
                             </td>
 
                         </tr>
