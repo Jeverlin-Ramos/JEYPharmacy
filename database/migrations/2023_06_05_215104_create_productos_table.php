@@ -17,12 +17,14 @@ return new class extends Migration
             $table->string('marca');
             $table->string('nombre');
             $table->text('descripcion');
+            $table->text('componenetes');
             $table->integer('precio');
             $table->unsignedBigInteger('id_categoria');
             $table->integer('cant_disponible');
             $table->string('presentacion');
             $table->date('fecha_vencimiento');
             $table->integer('restriccion');
+            $table->text('dosis_recomendada');
             $table->timestamps();
             $table->foreign('Id_categoria')->references('id')->on('categorias');
         });

@@ -329,15 +329,15 @@ select.form-control {
                           <h3>Datos del Cliente</h3>
                           <div class="form-group">
                             <label for="nombre">Nombre:</label>
-                            <span id="nombre">John Doe</span>
+                            <span id="nombre">{{$pedido->user->name}}</span>
                           </div>
                           <div class="form-group">
                             <label for="email">Email:</label>
-                            <span id="email">johndoe@example.com</span>
+                            <span id="email">{{$pedido->user->email}}</span>
                           </div>
                           <div class="form-group">
                             <label for="telefono">Teléfono:</label>
-                            <span id="telefono">123-456-7890</span>
+                            <span id="telefono">{{$pedido->user->telefono}}</span>
                           </div>
                         </div>
                       </div>

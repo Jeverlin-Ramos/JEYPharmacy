@@ -219,19 +219,29 @@ body{margin-top:20px;}
         
         <div class="container pb-4" id="div">
           <div class="row">
-            @foreach($pedidos as $pedido)
-            <a href="{{ route('pedido.detalle.empleados', ['id' => $pedido->id]) }}">
+            @if(count($pedidos) < 1)
             <div class="col-md-4">
               <div class="carbon-example flex-wrapper">
-                <img src="{{ asset('images/logo-cuadrado.png') }}" alt="example design logo">
                 <div class="inner-wrapper">
-                  <p class="pr-2">{{ $pedido->user->name }}</p>
-                  <p class="fine-print">RD${{ $pedido->Total }}</p>
+                  <p class="pr-2">Actualmente no hay ningún pedido disponible para procesar</p>
                 </div>
               </div>
             </div>
-          </a>
-            @endforeach
+            @else
+                @foreach($pedidos as $pedido)
+                <a href="{{ route('pedido.detalle.empleados', ['id' => $pedido->id]) }}">
+                <div class="col-md-4">
+                  <div class="carbon-example flex-wrapper">
+                    <img src="{{ asset('images/logo-cuadrado.png') }}" alt="example design logo">
+                    <div class="inner-wrapper">
+                      <p class="pr-2">{{ $pedido->user->name }}</p>
+                      <p class="fine-print">RD${{ $pedido->Total }}</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+                @endforeach
+            @endif
           </div>
         </div>
 

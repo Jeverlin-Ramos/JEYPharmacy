@@ -180,4 +180,13 @@ class PedidoController extends Controller
 
         return redirect()->route('todos-mis-pedidos');
     }
+
+    public function pedidoCancelado($idPedido)
+    {
+        $pedido = Pedido::findOrFail($idPedido);
+        $pedido->Estado_pedido = 5;
+        $pedido->save();
+
+        return redirect()->route('todos-mis-pedidos');
+    }
 }

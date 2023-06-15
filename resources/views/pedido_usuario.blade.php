@@ -116,6 +116,14 @@
                     <h3 class="text-center pt-3">Tu pedido fue entregado con éxito</h3>
                 </div>
             </section>
+
+            @elseif($pedido->Estado_pedido == 5)
+            <section class="slider_section" >
+                <div class="slider_bg_box">
+                    <img src="{{ asset('images/slider.jpg') }}" alt="" style="height: 300px;">
+                    <h3 class="text-center pt-3">Tu pedido fue cancelado</h3>
+                </div>
+            </section>
             @endif
 
         </div>
@@ -176,7 +184,9 @@
             <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Subtotal:</span><span class="d-inline-block align-middle text-xl font-weight-medium">RD${{$pedido->Subtotal}}.00</span></div>
             <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">ITBIS:</span><span class="d-inline-block align-middle text-xl font-weight-medium">RD${{$pedido->itbis}}</span></div>
             <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Total:</span><span class="d-inline-block align-middle text-xl font-weight-medium">RD${{$pedido->Total}}</span></div>
+            @if($pedido->Estado_pedido == 1 || $pedido->Estado_pedido == 2)
             <button id="btnCancelarPedido" class="btn btn-sm btn-danger mb-2">Cancelar pedido</button>
+            @endif
 
             <div id="alertaContainer"></div>
             
@@ -188,7 +198,7 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
                       <span aria-hidden="true">&times;</span>
                     </button>
-                    <button class="btn btn-sm btn-danger">Confirmar cancelación</button>
+                    <a class="btn btn-sm btn-danger" href="{{ route('pedido.cancelado', ['id' => $pedido->id]) }}">Confirmar cancelación</a>
                   </div>
                 `;
                 document.getElementById("alertaContainer").innerHTML = alertaHTML;
