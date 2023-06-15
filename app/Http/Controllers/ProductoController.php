@@ -85,19 +85,20 @@ class ProductoController extends Controller
         // Mover el archivo al directorio de almacenamiento deseado
         $file->storeAs('public/images', $filename);
 
-        //$producto = Producto::create($request->all());
-
         $producto = new Producto;
         $producto->imagen = $filename;
         $producto->marca = $request->input('marca');
         $producto->nombre = $request->input('nombre');
         $producto->descripcion = $request->input('descripcion');
+        $producto->componentes = $request->input('componentes');
         $producto->precio = $request->input('precio');
         $producto->id_categoria = $request->input('id_categoria');
         $producto->cant_disponible = $request->input('cant_disponible');
         $producto->presentacion = $request->input('presentacion');
         $producto->fecha_vencimiento = $request->input('fecha_vencimiento');
         $producto->restriccion = $request->input('restriccion');
+        $producto->dosis_recomendada = $request->input('dosis_recomendada');
+
         $producto->save();
 
         return redirect()->route('productos.index')

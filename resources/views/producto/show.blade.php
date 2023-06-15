@@ -29,6 +29,10 @@
                                     {{ $producto->descripcion }}
                                 </div>
                                 <div class="form-group">
+                                    <strong>Componentes:</strong><br>
+                                    {{ $producto->componentes }}
+                                </div>
+                                <div class="form-group">
                                     <strong>Precio:</strong>
                                     RD${{ $producto->precio }}.00
                                 </div>
@@ -51,6 +55,10 @@
                                 <div class="form-group">
                                     <strong>Restricciones:</strong>
                                     {{ $producto->restriccion }}+
+                                </div>
+                                <div class="form-group">
+                                    <strong>Dosis Recomendada:</strong><br>
+                                    {{ $producto->dosis_recomendada }}
                                 </div>
                             </div>
                         </div>

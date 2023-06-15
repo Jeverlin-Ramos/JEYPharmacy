@@ -143,6 +143,10 @@
                                                 <td>{{$producto->marca}}</td>
                                             </tr>
                                             <tr>
+                                                <td>Componentes</td>
+                                                <td>{{$producto->componentes}}</td>
+                                            </tr>
+                                            <tr>
                                                 <td>Categoría</td>
                                                 <td>{{$producto->categoria->nombre}}</td>
                                             </tr>
@@ -153,6 +157,10 @@
                                             <tr>
                                                 <td>Restricciones (Edad)</td>
                                                 <td>{{$producto->restriccion}}+</td>
+                                            </tr>                                            
+                                            <tr>
+                                                <td>Dosis Recomendada</td>
+                                                <td>{{$producto->dosis_recomendada}}</td>
                                             </tr>
                                         </tbody>
                                     </table>

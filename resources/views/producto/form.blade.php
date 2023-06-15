@@ -12,7 +12,7 @@
             {!! $errors->first('marca', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('nombre') }}
+            {{ Form::label('nombre & mg') }}
             {{ Form::text('nombre', $producto->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
@@ -20,6 +20,11 @@
             {{ Form::label('descripcion') }}
             {{ Form::textarea('descripcion', $producto->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('componentes') }}
+            {{ Form::textarea('componentes', $producto->componentes, ['class' => 'form-control' . ($errors->has('componentes') ? ' is-invalid' : ''), 'placeholder' => 'Componentes']) }}
+            {!! $errors->first('componentes', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('precio') }}
@@ -62,6 +67,11 @@
             {{ Form::label('Restricción') }}
             {{ Form::number('restriccion', $producto->restriccion, ['class' => 'form-control' . ($errors->has('restriccion') ? ' is-invalid' : ''), 'placeholder' => 'Restriccion']) }}
             {!! $errors->first('restriccion', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('dosis_recomendada') }}
+            {{ Form::textarea('dosis_recomendada', $producto->descripcion, ['class' => 'form-control' . ($errors->has('dosis_recomendada') ? ' is-invalid' : ''), 'placeholder' => 'Dosis Recomendada']) }}
+            {!! $errors->first('dosis_recomendada', '<div class="invalid-feedback">:message</div>') !!}
         </div>
     </div>
     <div class="box-footer mt20">
