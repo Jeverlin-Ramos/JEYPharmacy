@@ -20,7 +20,7 @@
                             Amplia gama de productos de venta libre para el cuidado de la salud y el bienestar.
                          </p>
                          <div class="btn-box">
-                            <a href="" class="btn1">
+                            <a href="{{route('productos-view')}}" class="btn1">
                             Comprar ahora
                             </a>
                          </div>

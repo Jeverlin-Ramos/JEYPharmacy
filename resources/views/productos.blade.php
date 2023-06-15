@@ -100,8 +100,7 @@
             <h2 class="pt-5">
                 Lista de <span>productos</span>
              </h2>
-
-
+             
              <!-- Search Bar -->
 
              <div class="container pt-3">

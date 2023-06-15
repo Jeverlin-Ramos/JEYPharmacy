@@ -217,7 +217,7 @@ body{margin-top:20px;}
         </div>
 
         
-        <div class="container" id="div">
+        <div class="container pb-4" id="div">
           <div class="row">
             @foreach($pedidos as $pedido)
             <a href="{{ route('pedido.detalle.empleados', ['id' => $pedido->id]) }}">

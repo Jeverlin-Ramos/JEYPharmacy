@@ -13,9 +13,7 @@
                 </div>
                 <p style="margin-top: 20px;margin-bottom: 30px;">
                   En JEY Pharmacy, te ofrecemos una amplia variedad de medicamentos para cubrir tus necesidades de salud. Contamos con un extenso catálogo que incluye medicamentos recetados, productos de venta libre y complementos nutricionales.                </p>
-                <a href="" id="arrival">
-                Comprar ahora
-                </a>
+                </br>
              </div>
           </div>
        </div>

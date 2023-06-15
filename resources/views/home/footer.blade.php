@@ -20,12 +20,11 @@
                 <div class="widget_menu">
                    <h3>Menú</h3>
                    <ul>
-                      <li><a href="#">LINK</a></li>
-                      <li><a href="#">LINK</a></li>
-                      <li><a href="#">LINK</a></li>
-                      <li><a href="#">LINK</a></li>
-                      <li><a href="#">LINK</a></li>
-                      <li><a href="#">LINK</a></li>
+                      <li><a href="/">INICIO</a></li>
+                      <li><a href="{{route('productos-view')}}">PRODUCTOS</a></li>
+                      <li><a href="{{ route('login') }}">LOGIN</a></li>
+                      <li><a href="{{ route('register') }}">REGISTRO</a></li>
+
                    </ul>
                 </div>
              </div>
@@ -33,12 +32,8 @@
                 <div class="widget_menu">
                    <h3>Cuenta</h3>
                    <ul>
-                      <li><a href="#">LINK</a></li>
-                      <li><a href="#">LINK</a></li>
-                      <li><a href="#">LINK</a></li>
-                      <li><a href="#">LINK</a></li>
-                      <li><a href="#">LINK</a></li>
-                      <li><a href="#">LINK</a></li>
+                      <li><a href="{{route('carrito.mostrar')}}">CARRITO</a></li>
+                      <li><a href="{{ route('todos-mis-pedidos') }}">TODOS LOS PEDIDOS</a></li>
                    </ul>
                 </div>
              </div>
@@ -46,20 +41,11 @@
              </div>     
              <div class="col-md-5">
                 <div class="widget_menu">
-                   <h3>Newsletter</h3>
+                   <h3>JEY Pharmacy</h3>
                    <div class="information_f">
-                     <p>Suscríbete a nuestro newsletter</p>
+                     <p>Donde la calidad esta asegurada</p>
                    </div>
-                   <div class="form_sub">
-                      <form>
-                         <fieldset>
-                            <div class="field">
-                               <input type="email" placeholder="Ingresa tu correo" name="email" />
-                               <input type="submit" value="Suscríbete" />
-                            </div>
-                         </fieldset>
-                      </form>
-                   </div>
+
                 </div>
              </div>
              </div>

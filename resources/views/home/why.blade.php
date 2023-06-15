@@ -100,7 +100,7 @@
                       Entrega rápida
                    </h5>
                    <p>
-                      Entregamos tu pedido lo más pronto posible
+                      Entregamos tu pedido lo más pronto posible 
                    </p>
                 </div>
              </div>
@@ -217,7 +217,7 @@
                    <p>
                       Te llevamos tu pedido sin costo alguno
                    </p> 
-                  </br> 
+                  
                 </div>
              </div>
           </div>

@@ -324,6 +324,24 @@ select.form-control {
 
                 <div class="column">
 
+                    <div class="container">
+                        <div class="cliente-info">
+                          <h3>Datos del Cliente</h3>
+                          <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <span id="nombre">John Doe</span>
+                          </div>
+                          <div class="form-group">
+                            <label for="email">Email:</label>
+                            <span id="email">johndoe@example.com</span>
+                          </div>
+                          <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <span id="telefono">123-456-7890</span>
+                          </div>
+                        </div>
+                      </div>
+
                     <div class="column text-lg">Subtotal: <span class="text-medium">RD${{$pedido->Subtotal}}.00</span></div>
                     <div class="column text-lg">ITBIS: <span class="text-medium">RD${{$pedido->itbis}}</span></div>
                     <div class="column text-lg">Total: <span class="text-medium">RD${{$pedido->Total}}</span></div>
