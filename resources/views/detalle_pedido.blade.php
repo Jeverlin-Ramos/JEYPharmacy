@@ -280,15 +280,28 @@ select.form-control {
             <!-- Alert-->
             <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;"><span class="alert-close" data-dismiss="alert"></span>Detalles del pedido a <strong>despachar</strong></div>
             <!-- Shopping Cart-->
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="table-responsive shopping-cart">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Produto</th>
-                            <th class="text-center">Cantidad</th>
-                            <th>Actualizar cantidad</th>
-                            <th>Agregar</th>
-                            <th>Eliminar</th>
+                            <th>Cantidad</th>
+                            <th class="text-center">Acción</th>
+                            <th>                                
+                                <a href="{{ route('productos-add', ['idPedido' => $pedido->id]) }}" class="btn btn-outline-secondary btn-sm btn-block mb-2">Añadir Producto</a>
+
+                              </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -303,26 +316,25 @@ select.form-control {
                                     </div>
                                 </div>
                             </td>
+
                             <td class="text-center">
-                                <div class="count-input">
-                                    <select class="form-control" @readonly(true)>
-                                        <option>{{$detalle->Cantidad_producto_pedido}}</option>
-                                    </select>
-                                </div>
+                                <form action="{{ route('pedido.actualizar-cantidad', [ $detalle->id]) }}" method="POST">
+                                    <div class="form-group mb-2">
+                                        @csrf
+                                        @method('PUT')
+                                        <input class="form-control form-control-sm col-3" type="number" name="cantidad" value="{{$detalle->Cantidad_producto_pedido}}">
+                                    </div>
+                                </form>
                             </td>
-                            <td>
-                                <div class="form-group mb-2">
-                                    <label for="quantity1">Cantidad</label>
-                                    <input class="form-control form-control-sm" type="number" name="cantidad" value="{{$item->Cantidad_producto}}">
-                                </div>
-                            </td>
-                            <td>
-                                <button class="btn btn-outline-secondary btn-sm btn-block mb-2" type="submit">
-                                    Agregar
-                                </button>
-                            </td>
-                            <td>
-                                <button class="btn btn-sm btn-danger">Eliminar</button>
+                            
+
+                            <td class="text-center">
+                                <form action="{{ route('pedido.eliminar-producto', [$detalle->Id_producto, $detalle->id, $pedido->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger" type="submit">Eliminar Producto</button>
+                                </form>
+                                
                             </td>
 
                         </tr>

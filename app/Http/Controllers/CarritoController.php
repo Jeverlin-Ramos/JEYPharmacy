@@ -180,19 +180,19 @@ class CarritoController extends Controller
 
     public function eliminarProducto($id)
     {
-    // Obtener el carrito actual del usuario autenticado
-    $carrito = CarritoCompra::where('Id_usuario', Auth::user()->id)->first();
+        // Obtener el carrito actual del usuario autenticado
+        $carrito = CarritoCompra::where('Id_usuario', Auth::user()->id)->first();
 
-    // Buscar el detalle del carrito con el ID de producto a eliminar
-    $detalleEliminar = DetalleCarrito::where('Id_carrito_compra', $carrito->id)
-        ->where('Id_producto', $id)->first();
-        
-    if ($detalleEliminar) {
-        // Eliminar el detalle del carrito
+        // Buscar el detalle del carrito con el ID de producto a eliminar
+        $detalleEliminar = DetalleCarrito::where('Id_carrito_compra', $carrito->id)
+            ->where('Id_producto', $id)->first();
+            
+        if ($detalleEliminar) {
+            // Eliminar el detalle del carrito
 
-        $detalleEliminar->delete();
-        return redirect()->route('carrito.mostrar')->with('success', 'El producto ha sido eliminado del carrito.');
+            $detalleEliminar->delete();
+            return redirect()->route('carrito.mostrar')->with('success', 'El producto ha sido eliminado del carrito.');
+        }
+        return redirect()->route('carrito.mostrar')->with('error', 'No se pudo eliminar el producto del carrito.');  
     }
-    return redirect()->route('carrito.mostrar')->with('error', 'No se pudo eliminar el producto del carrito.');  
-}
 }

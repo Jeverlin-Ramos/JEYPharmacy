@@ -41,7 +41,13 @@ Route::get('/pedido/{id}/cancelado', [PedidoController::class, 'pedidoCancelado'
                                 //Ruta pedidos empleados
 Route::get('/despachar-pedido/{idPedido}/{idEmpleado}', [\App\Http\Controllers\PedidoController::class, 'despacharPedido'])->name('cambiar_estado_pedido')->middleware('is_employee');
 Route::get('/empleados_pedidos', [\App\Http\Controllers\PedidoController::class, 'showPedidosForEmp'])->name('empleados_pedidos-mis-pedidos')->middleware('is_employee');
-Route::get('/pedido/{id}/detalle_empleado', [PedidoController::class, 'showDetalleForEmp'])->name('pedido.detalle.empleados')->middleware('is_employee');
+Route::get('/pedido/{id}/detalle-empleado', [PedidoController::class, 'showDetalleForEmp'])->name('pedido.detalle.empleados')->middleware('is_employee');
+Route::get('/pedido/{id}/detalle_empleado', [PedidoController::class, 'onlyShowDetalleForEmp'])->name('pedido-view.empleados')->middleware('is_employee');
+Route::put('/pedido/actualizar-cantidad/{detallePedidoId}', [App\Http\Controllers\PedidoController::class, 'actualizarCantidadEmpleado'])->name('pedido.actualizar-cantidad');
+Route::delete('/pedido/eliminar-producto/{id}/detalle/{idDetallePedido}/pedido/{idPedido}', [App\Http\Controllers\PedidoController::class, 'eliminarProducto'])->name('pedido.eliminar-producto')->middleware('is_employee');
+Route::get('/products-add/{idPedido}', [App\Http\Controllers\PedidoController::class, 'productVw'])->name('productos-add');
+Route::get('/pedido/seleccionar-producto/{idPedido}/{idProducto}/{cantidad}/{precio}', [PedidoController::class, 'agregarProducto'])->name('seleccionar-producto');
+
 
                                 //Ruta pedidos administrador
 Route::resource('pedidos', App\Http\Controllers\PedidoController::class)->middleware('is_admin');
