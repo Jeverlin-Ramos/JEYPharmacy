@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav')
 
 @section('template_title')
     {{ __('Update') }} Empleado

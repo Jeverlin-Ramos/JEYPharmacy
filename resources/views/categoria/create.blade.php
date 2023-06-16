@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layouts.nav')
 
 
 @section('content')
@@ -13,7 +13,7 @@
                         <span class="card-title">{{ __('Create') }} Categoria</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('categoria.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('categorias.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
                             @include('categoria.form')

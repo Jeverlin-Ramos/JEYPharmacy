@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav')
 
 @section('template_title')
     {{ __('Update') }} Producto
@@ -17,7 +17,7 @@
                         <span class="card-title">{{ __('Update') }} Producto</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('producto.update', $producto->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('productos.update', $producto->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

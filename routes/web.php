@@ -12,7 +12,7 @@ use App\Mail\FacturaMailable;
 use Illuminate\Support\Facades\Mail;
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\ProductoController::class, 'mostrarProductos']);
+Route::get('/', [App\Http\Controllers\ProductoController::class, 'mostrarProductos'])->name('home');
 
 //RUTA TEMPLATE
 Route::get('/dashboard', function () {
