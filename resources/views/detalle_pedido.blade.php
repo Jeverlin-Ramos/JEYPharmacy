@@ -380,12 +380,12 @@ select.form-control {
             <div class="shopping-cart-footer">
                 <div class="column"><a class="btn btn-outline-secondary" href="#"><i class="icon-arrow-left"></i>&nbsp;Volver a la página principal</a></div>
                 <div class="column">
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>Asignar delivery</option>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" required>
+                        <option value="" selected>Asignar delivery</option>
                         @foreach ($deliveries as $delivery)
                             <option value="{{ $delivery->id }}">{{ $delivery->Nombre }}</option>
                         @endforeach
-                    </select>
+                    </select>                    
                 </div>
                 
                 <div class="column">

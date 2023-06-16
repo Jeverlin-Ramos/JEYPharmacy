@@ -24,13 +24,13 @@
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
-        <a href="{{url('home')}}" class="simple-text logo-mini">
+        <a href="{{url('/')}}" class="simple-text logo-mini">
           <div class="logo-image-small">
             <img src="{{ asset('images/favicon.ico') }}">
         </div>
           <!-- <p>CT</p> -->
         </a>
-        <a href="{{url('home')}}" class="simple-text logo-normal">
+        <a href="{{url('/')}}" class="simple-text logo-normal">
           JEY Pharmacy 
 
         </a>
@@ -53,7 +53,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="{{url('home')}}"></a>
+            <a class="navbar-brand" href="{{url('/')}}"></a>
             <div class="logo-image-small">
                 <img src="{{ asset('images/logo.png') }}">
             </div>
