@@ -8,6 +8,7 @@ use App\Pedido;
 use App\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class PedidoController
@@ -275,6 +276,18 @@ class PedidoController extends Controller
     }    
     
     
+    public function obtenerPedidos()
+    {
+        $pedidos = Pedido::all();
+        return view('Gestion_pedidos', compact('pedidos'));
+    }
     
+    public function obtenerDetallePedido($idPedido)
+    {
 
+        $detalles = DetallesPedido::where('Id_pedido', $idPedido)->get();
+        $pedido = Pedido::find($idPedido);
+        
+        return view('detalle_pedidos_empleado', compact('pedido', 'detalles'));
+    }
 }

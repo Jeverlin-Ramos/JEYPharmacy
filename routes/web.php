@@ -49,6 +49,9 @@ Route::put('/pedido/actualizar-cantidad/{detallePedidoId}', [App\Http\Controller
 Route::delete('/pedido/eliminar-producto/{id}/detalle/{idDetallePedido}/pedido/{idPedido}', [App\Http\Controllers\PedidoController::class, 'eliminarProducto'])->name('pedido.eliminar-producto')->middleware('is_employee');
 Route::get('/products-add/{idPedido}', [App\Http\Controllers\PedidoController::class, 'productVw'])->name('productos-add');
 Route::get('/pedido/seleccionar-producto/{idPedido}/{idProducto}/{cantidad}/{precio}', [PedidoController::class, 'agregarProducto'])->name('seleccionar-producto');
+Route::get('/gestion-pedidos', [App\Http\Controllers\PedidoController::class, 'obtenerPedidos'])->name('gestion-pedidos');
+Route::get('/detalle-pedido/{idPedido}', [App\Http\Controllers\PedidoController::class,'obtenerDetallePedido'])->name('detalle-pedido');
+
 
 
                                 //Ruta pedidos administrador
