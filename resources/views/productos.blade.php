@@ -128,14 +128,14 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="{{ asset('storage/images/' . $producto->imagen) }}" alt="Product Image">
+                                <img class="card-img-top" src="{{ route('storage.uploads', ['filename' => $producto->imagen]) }}" alt="Product Image">
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
                                         <h5 class="fw-bolder"><a href="{{ route('productos-detail', $producto->id) }}" id="link">{{ $producto->nombre }}</a></h5>
                                         <!-- Product price-->
-                                        RD${{ $producto->precio }}
+                                        RD${{ $producto->precio }}.00
                                     </div>
                                 </div>
                                 <!-- Product actions-->

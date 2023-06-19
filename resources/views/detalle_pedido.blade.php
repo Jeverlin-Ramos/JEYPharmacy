@@ -310,7 +310,7 @@ select.form-control {
                         <tr>
                             <td>
                                 <div class="product-item">
-                                    <a class="product-thumb" href="#"><img src="{{ asset('storage/images/' . $detalle->producto->imagen) }}" alt="Product"></a>
+                                    <a class="product-thumb" href="#"><img src="{{ route('storage.uploads', ['filename' => $detalle->producto->imagen]) }}" alt="Product"></a>
                                     <div class="product-info">
                                         <h4 class="product-title"><a href="#">{{$detalle->producto->nombre}}</a></h4><span><em>Marca/Laboratorio:</em> {{$detalle->producto->marca}}</span><span><em>Precio Unitario:</em> RD${{$detalle->producto->precio}}.00</span>
                                     </div>

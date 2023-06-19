@@ -20,7 +20,13 @@
                      </div>
                  </div>
                  <div class="img-box">
-                     <img src="{{ asset('storage/images/' . $producto->imagen) }}" alt="{{ $producto->nombre }}">
+
+
+<!-- Utiliza la URL de la imagen en tu vista -->
+<img src="{{ route('storage.uploads', ['filename' => $producto->imagen]) }}"  alt="{{ $producto->nombre }}">
+
+
+
                  </div>
                  <div class="detail-box">
                      <h5>{{ $producto->nombre }}</h5>

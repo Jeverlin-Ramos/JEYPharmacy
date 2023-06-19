@@ -63,10 +63,7 @@ class EmpleadoController extends Controller
     $filename = uniqid() . '.' . $file->getClientOriginalExtension();
 
     // Mover el archivo al directorio de almacenamiento deseado
-    $file->storeAs('public/employees', $filename);
-
-    // Obtener la URL del archivo almacenado
-    $imageUrl = Storage::url('public/employees/' . $filename);
+        $file->storeAs('/public/employees', $filename);
     
         $empleado = Empleado::create([
             'Imagen' => $filename,

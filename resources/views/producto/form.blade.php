@@ -8,27 +8,27 @@
         </div>
         <div class="form-group">
             {{ Form::label('Marca') }}
-            {{ Form::text('marca', $producto->marca, ['class' => 'form-control' . ($errors->has('marca') ? ' is-invalid' : ''), 'placeholder' => 'Marca']) }}
+            {{ Form::text('marca', $producto->marca, ['class' => 'form-control' . ($errors->has('marca') ? ' is-invalid' : ''), 'placeholder' => 'Marca', 'required' => 'required']) }}
             {!! $errors->first('marca', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('nombre & mg') }}
-            {{ Form::text('nombre', $producto->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+            {{ Form::text('nombre', $producto->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'required' => 'required']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('descripcion') }}
-            {{ Form::textarea('descripcion', $producto->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
+            {{ Form::textarea('descripcion', $producto->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion', 'required' => 'required']) }}
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('componentes') }}
-            {{ Form::textarea('componentes', $producto->componentes, ['class' => 'form-control' . ($errors->has('componentes') ? ' is-invalid' : ''), 'placeholder' => 'Componentes']) }}
+            {{ Form::textarea('componentes', $producto->componentes, ['class' => 'form-control' . ($errors->has('componentes') ? ' is-invalid' : ''), 'placeholder' => 'Componentes', 'required' => 'required']) }}
             {!! $errors->first('componentes', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('precio') }}
-            {{ Form::number('precio', $producto->precio, ['class' => 'form-control' . ($errors->has('precio') ? ' is-invalid' : ''), 'placeholder' => 'Precio']) }}
+            {{ Form::number('precio', $producto->precio, ['class' => 'form-control' . ($errors->has('precio') ? ' is-invalid' : ''), 'placeholder' => 'Precio', 'required' => 'required']) }}
             {!! $errors->first('precio', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -70,7 +70,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('dosis_recomendada') }}
-            {{ Form::textarea('dosis_recomendada', $producto->descripcion, ['class' => 'form-control' . ($errors->has('dosis_recomendada') ? ' is-invalid' : ''), 'placeholder' => 'Dosis Recomendada']) }}
+            {{ Form::textarea('dosis_recomendada', $producto->dosis_recomendada, ['class' => 'form-control' . ($errors->has('dosis_recomendada') ? ' is-invalid' : ''), 'placeholder' => 'Dosis Recomendada', 'required' => 'required']) }}
             {!! $errors->first('dosis_recomendada', '<div class="invalid-feedback">:message</div>') !!}
         </div>
     </div>

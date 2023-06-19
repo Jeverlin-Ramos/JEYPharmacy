@@ -109,7 +109,7 @@
                     <!-- Item-->
                     <div class="d-sm-flex justify-content-between my-4 pb-4 border-bottom">
                         <div class="media d-block d-sm-flex text-center text-sm-left">
-                            <a class="cart-item-thumb mx-auto mr-sm-4" href="{{ route('productos-detail', $item->producto->id) }}"><img src="{{ asset('storage/images/' . $item->producto->imagen) }}" alt="Product"></a>
+                            <a class="cart-item-thumb mx-auto mr-sm-4" href="{{ route('productos-detail', $item->producto->id) }}"><img src="{{ route('storage.uploads', ['filename' => $item->producto->imagen]) }}" alt="Product"></a>
                             <div class="media-body ml-3 pt-3">
                                 <h3 class="product-card-title font-weight-semibold border-0 pb-0 ml-3"><a href="{{ route('productos-detail', $item->producto->id) }}">{{$item->producto->nombre}}</a></h3>
                                 <div class="font-size-sm"><span class="text-muted mr-2">Presentación:</span>{{$item->producto->presentacion}}</div>
