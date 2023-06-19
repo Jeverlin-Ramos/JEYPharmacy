@@ -437,6 +437,16 @@
     </div>
 
    <div class="container pb-5 mb-2">
+
+    <div class="d-flex justify-content-center">
+      <form class="form my-2 my-lg-0">
+          <div class="input-group">
+              <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="query">
+              <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+          </div>
+      </form>
+  </div>
+  
         <!-- Alert-->
         <div class="alert alert-info alert-dismissible fade show text-center mb-30"><span class="alert-close" data-dismiss="alert"></span><i class="fe-icon-award"></i>&nbsp;&nbsp;Aquí se muestran <strong>todos</strong> los pedidos.</div>
         @foreach($pedidos as $pedido)
