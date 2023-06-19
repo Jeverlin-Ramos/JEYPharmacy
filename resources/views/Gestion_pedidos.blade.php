@@ -440,7 +440,7 @@
 
     <div class="d-flex justify-content-center">
       <form class="form my-2 my-lg-0">
-          <div class="input-group">
+          <div class="input-group mb-3">
               <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="query">
               <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
           </div>

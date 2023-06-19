@@ -276,11 +276,26 @@ class PedidoController extends Controller
     }    
     
     
-    public function obtenerPedidos()
+    public function obtenerPedidos(Request $request)
     {
-        $pedidos = Pedido::all();
+        $query = $request->input('query');
+        $pedidos = Pedido::query();
+        if ($query) {
+            $pedidos->where(function ($queryBuilder) use ($query) {
+                $queryBuilder->whereHas('user', function ($queryBuilder) use ($query) {
+                    $queryBuilder->where('name', 'LIKE', "%$query%");
+                })
+                ->orWhere('Fecha_pedido', 'LIKE', "%$query%");
+            });
+        }
+        
+        $pedidos = $pedidos->orderBy('id', 'desc')->paginate(10); // Cambia el número 10 por la cantidad de resultados que deseas mostrar por página
+        
         return view('Gestion_pedidos', compact('pedidos'));
+        
+        
     }
+    
     
     public function obtenerDetallePedido($idPedido)
     {

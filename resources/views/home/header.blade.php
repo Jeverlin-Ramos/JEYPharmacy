@@ -21,7 +21,10 @@
                            </li>
                         @elseif(Auth::user()->rol == "empleado")
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{url('empleados_pedidos')}}">Panel Administrativo </a>
+                            <a class="nav-link" href="{{url('empleados_pedidos')}}">Procesar Pedidos </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{url('gestion-pedidos')}}">Administrar Pedidos </a>
                         </li>
                         @endif
                    @endauth
