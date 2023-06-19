@@ -41,7 +41,6 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Imagen</th>
 										<th>Nombre</th>
 										<th>Numero Tel</th>
 										<th>Email</th>
@@ -55,7 +54,6 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $empleado->Imagen }}</td>
 											<td>{{ $empleado->Nombre }}</td>
 											<td>{{ $empleado->Numero_tel }}</td>
 											<td>{{ $empleado->Email }}</td>

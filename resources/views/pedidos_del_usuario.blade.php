@@ -445,7 +445,7 @@
         <div class="cart-item d-md-flex justify-content-between">
             <div class="px-3 my-3">
                 <a class="cart-item-product" href="{{ route('pedido.detalle', ['id' => $pedido->id]) }}">
-                    <div class="cart-item-product-thumb"><img src="{{asset('images/logo.png')}}" alt="Product"></div>
+                    <div class="cart-item-product-thumb"><img src="{{asset('images/logo-cuadrado.png')}}" alt="Product"></div>
                     <div class="cart-item-product-info">
                       <h4 class="cart-item-product-title">{{ \Carbon\Carbon::parse($pedido->Fecha_pedido)->format('d-m-Y') }}</h4>
                       <span><strong>Tipo de Pago:</strong> {{$pedido->Opcion_pago}}</span>
@@ -462,9 +462,9 @@
             </div>
 
         </div>
-         
+               @endforeach
+
         </div></a>
-      @endforeach
 
     <!-- footer start -->
       @include('home.footer')

@@ -1,0 +1,31 @@
+[14-Jun-2023 16:10:53 UTC] PHP Warning:  require(/home/krivsn5k3mri/public_html/../vendor/autoload.php): failed to open stream: No such file or directory in /home/krivsn5k3mri/public_html/index.php on line 34
+[14-Jun-2023 16:10:53 UTC] PHP Fatal error:  require(): Failed opening required '/home/krivsn5k3mri/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/krivsn5k3mri/public_html/index.php on line 34
+[14-Jun-2023 16:11:03 UTC] PHP Warning:  require(/home/krivsn5k3mri/public_html/../vendor/autoload.php): failed to open stream: No such file or directory in /home/krivsn5k3mri/public_html/index.php on line 34
+[14-Jun-2023 16:11:03 UTC] PHP Fatal error:  require(): Failed opening required '/home/krivsn5k3mri/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/krivsn5k3mri/public_html/index.php on line 34
+[14-Jun-2023 16:11:14 UTC] PHP Warning:  require(/home/krivsn5k3mri/public_html/../vendor/autoload.php): failed to open stream: No such file or directory in /home/krivsn5k3mri/public_html/index.php on line 34
+[14-Jun-2023 16:11:14 UTC] PHP Fatal error:  require(): Failed opening required '/home/krivsn5k3mri/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/krivsn5k3mri/public_html/index.php on line 34
+[14-Jun-2023 16:11:47 UTC] PHP Warning:  require(/home/krivsn5k3mri/public_html/../vendor/autoload.php): failed to open stream: No such file or directory in /home/krivsn5k3mri/public_html/index.php on line 34
+[14-Jun-2023 16:11:47 UTC] PHP Fatal error:  require(): Failed opening required '/home/krivsn5k3mri/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/krivsn5k3mri/public_html/index.php on line 34
+[14-Jun-2023 16:11:55 UTC] PHP Warning:  require(/home/krivsn5k3mri/public_html/../vendor/autoload.php): failed to open stream: No such file or directory in /home/krivsn5k3mri/public_html/index.php on line 34
+[14-Jun-2023 16:11:55 UTC] PHP Fatal error:  require(): Failed opening required '/home/krivsn5k3mri/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/krivsn5k3mri/public_html/index.php on line 34
+[14-Jun-2023 16:22:00 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.28. in /home/krivsn5k3mri/Platform/vendor/composer/platform_check.php on line 24
+[14-Jun-2023 16:22:34 UTC] PHP Warning:  require_once(/home/krivsn5k3mri/public_html/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/krivsn5k3mri/public_html/index.php on line 47
+[14-Jun-2023 16:22:34 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/krivsn5k3mri/public_html/../bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/krivsn5k3mri/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/krivsn5k3mri/public_html/index.php on line 47
+[14-Jun-2023 16:22:37 UTC] PHP Warning:  require_once(/home/krivsn5k3mri/public_html/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/krivsn5k3mri/public_html/index.php on line 47
+[14-Jun-2023 16:22:37 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/krivsn5k3mri/public_html/../bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/krivsn5k3mri/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/krivsn5k3mri/public_html/index.php on line 47
+[14-Jun-2023 16:22:38 UTC] PHP Warning:  require_once(/home/krivsn5k3mri/public_html/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/krivsn5k3mri/public_html/index.php on line 47
+[14-Jun-2023 16:22:38 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/krivsn5k3mri/public_html/../bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/krivsn5k3mri/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/krivsn5k3mri/public_html/index.php on line 47
+[14-Jun-2023 16:22:47 UTC] PHP Warning:  require_once(/home/krivsn5k3mri/public_html/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/krivsn5k3mri/public_html/index.php on line 47
+[14-Jun-2023 16:22:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/krivsn5k3mri/public_html/../bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/krivsn5k3mri/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/krivsn5k3mri/public_html/index.php on line 47

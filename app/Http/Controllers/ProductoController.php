@@ -42,7 +42,7 @@ class ProductoController extends Controller
 
     public function mostrarProductos()
     {
-        $productos = Producto::limit(6)->get(); // Obtener los primeros 6 productos
+        $productos = Producto::limit(9)->get(); // Obtener los primeros 6 productos
 
         return view('home.userpage', compact('productos'));
     }
@@ -83,7 +83,7 @@ class ProductoController extends Controller
         $filename = uniqid() . '.' . $file->getClientOriginalExtension();
 
         // Mover el archivo al directorio de almacenamiento deseado
-        $file->storeAs('public/images', $filename);
+        $file->storeAs('/public/uploads', $filename);
 
         $producto = new Producto;
         $producto->imagen = $filename;
@@ -151,23 +151,25 @@ class ProductoController extends Controller
         $filename = uniqid() . '.' . $file->getClientOriginalExtension();
 
         // Mover el archivo al directorio de almacenamiento deseado
-        $file->storeAs('public/images', $filename);
+        $file->storeAs('/public/uploads', $filename);
 
         // Eliminar la imagen anterior si existe
         if ($producto->imagen) {
-            Storage::delete('public/images/' . $producto->imagen);
+            Storage::delete('public/uploads/' . $producto->imagen);
         }
 
         $producto->imagen = $filename;
         $producto->marca = $request->input('marca');
         $producto->nombre = $request->input('nombre');
         $producto->descripcion = $request->input('descripcion');
+        $producto->componentes = $request->input('componentes');
         $producto->precio = $request->input('precio');
         $producto->id_categoria = $request->input('id_categoria');
         $producto->cant_disponible = $request->input('cant_disponible');
         $producto->presentacion = $request->input('presentacion');
         $producto->fecha_vencimiento = $request->input('fecha_vencimiento');
         $producto->restriccion = $request->input('restriccion');
+        $producto->dosis_recomendada = $request->input('dosis_recomendada');
         $producto->save();
         
         return redirect()->route('productos.index')
@@ -187,7 +189,7 @@ class ProductoController extends Controller
         // Verifica si el producto existe
         if ($producto) {
             // Elimina la foto del storage
-            Storage::delete('public/images/' . $producto->imagen);
+            Storage::delete('public/uploads/' . $producto->imagen);
 
             // Elimina el producto de la base de datos
             $producto->delete();

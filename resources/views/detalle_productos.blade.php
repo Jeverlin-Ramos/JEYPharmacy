@@ -106,7 +106,7 @@
                         <h6 class="card-subtitle pb-2">Producto de farmacia</h6>
                         <div class="row">
                             <div class="col-lg-5 col-md-5 col-sm-6">
-                                <div class="white-box text-center"><img src="{{ asset('storage/images/' . $producto->imagen) }}" class="img-responsive" width="400"></div>
+                                <div class="white-box text-center"><img src="{{ route('storage.uploads', ['filename' => $producto->imagen]) }}" class="img-responsive" width="400"></div>
                             </div>
                             <div class="col-lg-7 col-md-7 col-sm-6">
                                 <h4 class="box-title mt-5">Descripcion del producto</h4>
@@ -182,7 +182,7 @@
                             <div class="card h-100">
 
                                 <!-- Product image-->
-                                <img class="card-img-top" src="{{ asset('storage/images/' . $item->imagen) }}" alt="Product Image">
+                                <img class="card-img-top" src="{{ route('storage.uploads', ['filename' => $item->imagen]) }}" alt="Product Image">
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">

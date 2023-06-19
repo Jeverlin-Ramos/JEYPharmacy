@@ -51,7 +51,8 @@ class UserController extends Controller
             'email' => 'required|email',
             'fecha_nacimiento' => 'required|date',
             'telefono' => 'required|regex:/\d{3}-\d{3}-\d{4}/',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed',
+            'rol' => 'required',
         ]);
     
         $user = User::create([
@@ -59,7 +60,9 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'fecha_nacimiento' => $request->input('fecha_nacimiento'),
             'telefono' => $request->input('telefono'),
-            'password' => Hash::make($request->input('password'))
+            'password' => Hash::make($request->input('password')),
+            'rol' => $request->input('rol'),
+
         ]);
     
 

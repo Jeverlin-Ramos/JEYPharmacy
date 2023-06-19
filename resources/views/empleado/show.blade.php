@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="{{ asset('storage/employees/' . $empleado->Imagen) }}" alt="Imagen del empleado">
+                                <img src="{{ route('storage.employees', ['filename' => $empleado->Imagen]) }}" alt="Imagen del empleado">
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group">

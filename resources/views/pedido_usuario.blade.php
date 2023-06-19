@@ -135,7 +135,7 @@
                 <div class="col-12 col-sm-auto mb-3">
                   <div class="mx-auto" style="width: 140px;">
                     <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
-                        <img src="{{ asset('storage/employees/' . $pedido->empleado->Imagen) }}" alt="Imagen" width="140" height="140">
+                        <img src="{{ route('storage.employees', ['filename' => $pedido->empleado->Imagen]) }}" alt="" width="140" height="140">
                     </div>
                   </div>
                 </div>
@@ -162,7 +162,7 @@
                         <!-- Item-->
                         <div class="d-sm-flex justify-content-between my-4 pb-4 border-bottom">
                             <div class="media d-block d-sm-flex text-center text-sm-left">
-                                <a class="cart-item-thumb mx-auto mr-sm-4" href="{{ route('productos-detail', $detalle->producto->id) }}"><img src="{{ asset('storage/images/' . $detalle->producto->imagen) }}" alt="Product"></a>
+                                <a class="cart-item-thumb mx-auto mr-sm-4" href="{{ route('productos-detail', $detalle->producto->id) }}"><img src="{{ route('storage.uploads', ['filename' => $detalle->producto->imagen]) }}" alt="Product"></a>
                                 <div class="media-body ml-3 pt-3">
                                     <h3 class="product-card-title font-weight-semibold border-0 pb-0 ml-3"><a href="{{ route('productos-detail', $detalle->producto->id) }}">{{$detalle->producto->nombre}}</a></h3>
                                     <div class="font-size-sm"><span class="text-muted mr-2">Presentación:</span>{{$detalle->producto->presentacion}}</div>

@@ -10,6 +10,8 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\UserController;
 use App\Mail\FacturaMailable;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Artisan;
+
 
 Auth::routes();
 Route::get('/', [App\Http\Controllers\ProductoController::class, 'mostrarProductos'])->name('home');
@@ -47,6 +49,9 @@ Route::put('/pedido/actualizar-cantidad/{detallePedidoId}', [App\Http\Controller
 Route::delete('/pedido/eliminar-producto/{id}/detalle/{idDetallePedido}/pedido/{idPedido}', [App\Http\Controllers\PedidoController::class, 'eliminarProducto'])->name('pedido.eliminar-producto')->middleware('is_employee');
 Route::get('/products-add/{idPedido}', [App\Http\Controllers\PedidoController::class, 'productVw'])->name('productos-add');
 Route::get('/pedido/seleccionar-producto/{idPedido}/{idProducto}/{cantidad}/{precio}', [PedidoController::class, 'agregarProducto'])->name('seleccionar-producto');
+Route::get('/gestion-pedidos', [App\Http\Controllers\PedidoController::class, 'obtenerPedidos'])->name('gestion-pedidos');
+Route::get('/detalle-pedido/{idPedido}', [App\Http\Controllers\PedidoController::class,'obtenerDetallePedido'])->name('detalle-pedido');
+
 
 
                                 //Ruta pedidos administrador
@@ -66,3 +71,29 @@ Route::post('/carrito/agregar-producto-con-cantidad', [App\Http\Controllers\Carr
 Route::put('/carrito/actualizar-cantidad/{detalleCarrito}', [App\Http\Controllers\CarritoController::class, 'actualizarCantidad'])->name('carrito.actualizar-cantidad')->middleware('auth');
 Route::delete('/carrito/eliminar-producto/{id}', [App\Http\Controllers\CarritoController::class, 'eliminarProducto'])->name('carrito.eliminar-producto')->middleware('auth');
 Route::post('/carrito/realizar-pedido', [App\Http\Controllers\CarritoController::class, 'realizarPedido'])->name('carrito.realizar-pedido')->middleware('auth');
+
+Route::get('storage/uploads/{filename}', function ($filename) {
+    $path = storage_path('app/public/uploads/' . $filename);
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    $file = file_get_contents($path);
+    $type = mime_content_type($path);
+
+    return response($file, 200)->header('Content-Type', $type);
+})->name('storage.uploads');
+
+Route::get('storage/employees/{filename}', function ($filename) {
+    $path = storage_path('app/public/employees/' . $filename);
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    $file = file_get_contents($path);
+    $type = mime_content_type($path);
+
+    return response($file, 200)->header('Content-Type', $type);
+})->name('storage.employees');
