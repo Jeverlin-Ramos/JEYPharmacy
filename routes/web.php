@@ -33,7 +33,7 @@ Route::resource('users', App\Http\Controllers\UserController::class)->middleware
 
                                 //Ruta pedidos usuario
 Route::get('/todos-mis-pedidos', [\App\Http\Controllers\PedidoController::class, 'showPedidos'])->name('todos-mis-pedidos')->middleware('auth');
-Route::get('/pedido/{id}/detalle', [App\Http\Controllers\PedidoController::class, 'showDetalle'])->name('pedido.detalle')->middleware('auth');
+Route::get('/pedido/{id}/detalle', [App\Http\Controllers\PedidoController::class  , 'showDetalle'])->name('pedido.detalle')->middleware('auth');
 Route::get('/pedido/{id}/entregado', [PedidoController::class, 'pedidoEntregado'])->name('pedido.entregado')->middleware('auth');
 Route::get('/pedido/{id}/cancelado', [PedidoController::class, 'pedidoCancelado'])->name('pedido.cancelado')->middleware('auth');
 
